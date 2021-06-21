@@ -1,2 +1,2 @@
-# streamlit
+# Streamlit
 Streamlit Test Application
