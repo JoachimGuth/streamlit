@@ -52,9 +52,13 @@ st.write(str(monthSelect))
 st.write(str(shiftSelect))
 
 
-for i in range(1, 4):
-   cols = st.beta_column(10)
-   cols[i] = st.write(f'{i}')
+for i in range(1, 10):
+   cols = st.beta_column(4)
+   cols[1] = st.write(f'{i}')
+   cols[2] = st.write(f'{i}')
+   cols[3] = st.write(f'{i}')
+   cols[4] = st.write(f'{i}')
+   
 
 
 # Nbr of Days of a month in a particulat year
