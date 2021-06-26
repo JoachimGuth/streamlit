@@ -22,6 +22,8 @@ st.sidebar.title('Plant Configuration')
 machines = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8']
 mSelect = st.sidebar.radio('Machines',['All', 'Select'])
 
+
+machSelect = []
 machSelect = st.sidebar.multiselect('Machines: ', machines)
 
 # Standard Operating Hours per Day
@@ -30,6 +32,7 @@ st.sidebar.write("Available hours per day: "+ str(stddayAvailHours))
 
 # Current Year used to create Production Calendar
 year = [2021, 2022, 2023, 2024, 2025, 2026]
+yearSelect = datetime.datetime.now().year
 yearSelect = st.sidebar.selectbox("Year:", year)
 
 # List of Month
