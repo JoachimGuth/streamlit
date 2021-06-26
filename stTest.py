@@ -63,3 +63,6 @@ class DaysPerMonth(object):
 # Instance of the Class Days per Month
 dpm = DaysPerMonth()
 
+
+
+st.write(str(machSelect))
