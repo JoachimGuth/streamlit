@@ -1,24 +1,27 @@
-import calendar
+
+ import calendar
 from datetime import datetime
 from datetime import date
 import datetime
 import numpy as np
 import matplotlib.pyplot as plt
 import pulp
+import streamlit as st
+
 
 st.write(pulp.listSolvers())
 st.write(pulp.operating_system)
 
 
 
-#PPlant Setup
+# Plant Setup
 # Machines available for production
 machines = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8']
 st.sidebar.write ("Machines in the plant"+ str(machines))
 
 # Standard Operating Hours per Day
 stddayAvailHours = 24
-st.sidebar.write("Available hours pere day: "+ str(stdayAvailHours))
+st.sidebar.write("Available hours pere day: "+ str(stddayAvailHours))
 
 # Current Year used to create Production Calendar
 curYear = 2021
@@ -47,26 +50,4 @@ class DaysPerMonth(object):
 
 # Instance of the Class Days per Month
 dpm = DaysPerMonth()
-
-# Production Calendar for Current Year
-daysAvailInMonth = {
-    'M1' : [[np.random.randint(10) for i in range(dpm.numberOfDays(curYear, month))] for month in monthlist.values()],
-    'M2' : [[i+1 for i in range(dpm.numberOfDays(curYear, month))] for month in monthlist.values()],
-    'M3' : [[i+1 for i in range(dpm.numberOfDays(curYear, month))] for month in monthlist.values()],
-    'M4' : [[i+1 for i in range(dpm.numberOfDays(curYear, month))] for month in monthlist.values()],
-    'M5' : [[i+1 for i in range(dpm.numberOfDays(curYear, month))] for month in monthlist.values()],
-    'M6' : [[i+1 for i in range(dpm.numberOfDays(curYear, month))] for month in monthlist.values()],
-    'M7' : [[i+1 for i in range(dpm.numberOfDays(curYear, month))] for month in monthlist.values()],
-    'M8' : [[i+1 for i in range(dpm.numberOfDays(curYear, month))] for month in monthlist.values()]
-}
-
-print(range(dpm.numberOfDays(curYear,2)))
-
-
-# Displaying the Production Calendar for all Machines
-for m in machines:
-   for mth in monthlist.keys():
-      print(m, mth, daysAvailInMonth[m][monthlist[mth]-1])
-
-
       
