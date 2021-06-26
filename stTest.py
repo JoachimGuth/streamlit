@@ -43,6 +43,12 @@ shiftOptions = { '2x8': 16, '3x8': 24, '2x12': 24 }
 shiftSelect = st.sidebar.selectbox ("Shift: ", [ m for m,k  in shiftOptions.items()])
 
 
+st.write(str(machSelect))
+st.write(str(yearSelect))
+st.write(str(monthSelect))
+st.write(str(shiftSelect))
+
+
 # Nbr of Days of a month in a particulat year
 class DaysPerMonth(object):
    def numberOfDays(self, y, m):
@@ -65,4 +71,4 @@ dpm = DaysPerMonth()
 
 
 
-st.write(str(machSelect))
+
