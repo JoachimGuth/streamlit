@@ -34,7 +34,7 @@ monthlist= {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug'
 month = [m for m in monthlist.keys()]
 st.write(month)
 
-m onthSelect = st.sidebar.selectbox ("Month: ", [ m for m,k  in monthlist.items()])
+monthSelect = st.sidebar.selectbox ("Month: ", [ m for m,k  in monthlist.items()])
 
 # Nbr of Days of a month in a particulat year
 class DaysPerMonth(object):
