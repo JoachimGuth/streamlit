@@ -5,7 +5,7 @@
 #import numpy as np
 #import matplotlib.pyplot as plt
 #import pulp
-#import streamlit as st
+import streamlit as st
 
 
 #st.write(pulp.listSolvers())
