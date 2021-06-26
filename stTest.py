@@ -53,7 +53,7 @@ st.write(str(shiftSelect))
 
 
 for i in range(1, 10):
-   cols = st.beta_column(4)
+   cols = st.beta_columns(4)
    cols[0] = st.write(f'{i}')
    cols[1] = st.write(f'{i}')
    cols[2] = st.write(f'{i}')
