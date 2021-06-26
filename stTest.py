@@ -23,11 +23,11 @@ st.sidebar.multiselect('Machines: ', machines)
 
 # Standard Operating Hours per Day
 stddayAvailHours = 24
-st.sidebar.write("Available hours pere day: "+ str(stddayAvailHours))
+st.sidebar.write("Available hours per day: "+ str(stddayAvailHours))
 
 # Current Year used to create Production Calendar
-curYear = 2021
-st.sidebar.write("Available hours pere day: "+ str(curYear))
+year = [2021, 2022, 2023, 2024, 2025, 2026]
+st.sidebar.selectbox("Year:". year))
 
 # List of Month
 monthlist= {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
