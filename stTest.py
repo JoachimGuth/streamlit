@@ -12,7 +12,7 @@ import streamlit as st
 #st.write(pulp.operating_system)
 
 st.title("Optimisation of Plant Utilisation")
-st.sub_header('Selections')
+st.subheader('Selections')
 st.write(machSelect, yearSelect, monthSelect, shiftSelect)
 
 
