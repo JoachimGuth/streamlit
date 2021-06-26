@@ -33,7 +33,7 @@ st.sidebar.selectbox("Year:", year)
 monthlist= {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
 monthSelect = st.sidebar.selectbox ("Month: ", [ m for m,k  in monthlist.items()])
 
-shiftOptions = { 2x8: 16, 3x8: 24, 2x12: 24 }
+shiftOptions = { '2x8': 16, '3x8': 24, '2x12': 24 }
 shiftSelect = st.sidebar.selectbox ("Shift: ", [ m for m,k  in shiftOptions.items()])
 
 
