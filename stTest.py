@@ -19,7 +19,7 @@ st.sidebar.title('Plant Configuration')
 # Plant Setup
 # Machines available for production
 machines = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8']
-st.sidebar.multiselect(machines)
+st.sidebar.multiselect('Machines: ', machines)
 
 # Standard Operating Hours per Day
 stddayAvailHours = 24
