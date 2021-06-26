@@ -13,5 +13,6 @@ import streamlit as st
 
 st.title("Optimisation of Plant Utilisation")
 
+st.sidebar.title('Plant Configuration')
 
 
