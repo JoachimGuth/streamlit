@@ -26,8 +26,8 @@ mySelect = ['All']
 mSelect = st.sidebar.radio('Machines',['All', 'Select'])
 if mSelect == 'All':
    machSelect = machines
-      else:
-         machSelect = st.sidebar.multiselect('Machines: ', machines)
+   else:
+      machSelect = st.sidebar.multiselect('Machines: ', machines)
 
 # Standard Operating Hours per Day
 stddayAvailHours = 24
