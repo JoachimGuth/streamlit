@@ -1,4 +1,3 @@
-
 import calendar
 from datetime import datetime
 from datetime import date
@@ -50,4 +49,3 @@ class DaysPerMonth(object):
 
 # Instance of the Class Days per Month
 dpm = DaysPerMonth()
-      
