@@ -19,7 +19,7 @@ st.sidebar.title('Plant Configuration')
 # Plant Setup
 # Machines available for production
 machines = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8']
-st.sidebar.multiselect('Machines: ', machines)
+machSelect = st.sidebar.multiselect('Machines: ', machines)
 
 # Standard Operating Hours per Day
 stddayAvailHours = 24
@@ -31,7 +31,7 @@ st.sidebar.selectbox("Year:", year)
 
 # List of Month
 monthlist= {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
-st.sidebar.write(monthlist)
+monthSelect = st.sidebar.select ([ m for m in monthlist.key()])
 
 # Nbr of Days of a month in a particulat year
 class DaysPerMonth(object):
