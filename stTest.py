@@ -52,6 +52,11 @@ st.write(str(monthSelect))
 st.write(str(shiftSelect))
 
 
+for i in range(1, 4):
+   cols = st.beta_column(10)
+   cols[i] = st.write(f'{i}')
+
+
 # Nbr of Days of a month in a particulat year
 class DaysPerMonth(object):
    def numberOfDays(self, y, m):
