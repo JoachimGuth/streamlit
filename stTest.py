@@ -67,3 +67,5 @@ for m in machines:
    for mth in monthlist.keys():
       print(m, mth, daysAvailInMonth[m][monthlist[mth]-1])
 
+
+      
