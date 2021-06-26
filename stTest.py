@@ -12,6 +12,10 @@ import streamlit as st
 #st.write(pulp.operating_system)
 
 st.title("Optimisation of Plant Utilisation")
+st.sub_header('Selections')
+st.write(machSelect, yearSelect, monthSelect, shiftSelect)
+
+
 
 st.sidebar.title('Plant Configuration')
 
@@ -27,7 +31,7 @@ st.sidebar.write("Available hours per day: "+ str(stddayAvailHours))
 
 # Current Year used to create Production Calendar
 year = [2021, 2022, 2023, 2024, 2025, 2026]
-st.sidebar.selectbox("Year:", year)
+yearSelect = st.sidebar.selectbox("Year:", year)
 
 # List of Month
 monthlist= {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
