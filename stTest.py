@@ -8,8 +8,8 @@ import pulp
 import streamlit as st
 
 
-st.write(pulp.listSolvers())
-st.write(pulp.operating_system)
+#st.write(pulp.listSolvers())
+#st.write(pulp.operating_system)
 
 
 
