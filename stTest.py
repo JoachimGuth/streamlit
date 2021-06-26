@@ -13,11 +13,6 @@ import streamlit as st
 
 st.title("Optimisation of Plant Utilisation")
 st.subheader('Selections')
-#st.write(machSelect, yearSelect, monthSelect, shiftSelect)
-
-#st.write(str(machSelect))
-
-
 
 st.sidebar.title('Plant Configuration')
 
@@ -25,6 +20,8 @@ st.sidebar.title('Plant Configuration')
 # Plant Setup
 # Machines available for production
 machines = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8']
+st.sidebar.radio('All', 'Select')
+
 machSelect = st.sidebar.multiselect('Machines: ', machines)
 
 # Standard Operating Hours per Day
