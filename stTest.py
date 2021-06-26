@@ -31,7 +31,7 @@ print(monthlist['Jan'])
 class DaysPerMonth(object):
    def numberOfDays(self, y, m):
       leap = 0
-      if y% 400 == 0:
+      if y % 400 == 0:
          leap = 1
       elif y % 100 == 0:
          leap = 0
