@@ -35,7 +35,7 @@ class DaysPerMonth(object):
          leap = 1
       elif y % 100 == 0:
          leap = 0
-      elif y% 4 == 0:
+      elif y % 4 == 0:
          leap = 1
       if m==2:
          return 28 + leap
