@@ -13,7 +13,9 @@ import streamlit as st
 
 st.title("Optimisation of Plant Utilisation")
 st.subheader('Selections')
-st.write(machSelect, yearSelect, monthSelect, shiftSelect)
+#st.write(machSelect, yearSelect, monthSelect, shiftSelect)
+
+st.write(str(machSelect))
 
 
 
