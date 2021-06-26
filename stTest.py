@@ -6,8 +6,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pulp
 
-print(pulp.listSolvers())
-print(pulp.operating_system)
+st.write(pulp.listSolvers())
+st.write(pulp.operating_system)
+
 
 
 #PPlant Setup
