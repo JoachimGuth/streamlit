@@ -6,7 +6,7 @@ from datetime import date
 import datetime
 import numpy as np
 import matplotlib.pyplot as plt
-import pulp
+#import pulp
 import streamlit as st
 
 
