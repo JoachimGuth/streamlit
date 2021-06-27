@@ -27,9 +27,8 @@ years = [2021, 2022, 2023, 2024, 2025, 2026]
 monthList= {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
 
 d = [m for m in monthList.keys()]
-st.write(years)
 for m in monthList.keys():
-   st.write(m)
+   st.text(m)
 
 # Standard Operating Hours per Day
 stdDayAvailHours = 24
