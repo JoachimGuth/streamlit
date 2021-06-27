@@ -6,7 +6,7 @@ from datetime import date
 import datetime
 import numpy as np
 import matplotlib.pyplot as plt
-import pulp
+#import pulp
 import streamlit as st
 
 
@@ -20,8 +20,8 @@ st.title("Plant Optimisation")
 machines = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8']
 
 # Selectable Years
-#years = [2021, 2022, 2023, 2024, 2025, 2026]
-years = [yr for yr in range(datetime.datetime.now().year,datetime.datetime.now().year+10)]
+years = [2021, 2022, 2023, 2024, 2025, 2026]
+#years = [yr for yr in range(datetime.datetime.now().year,datetime.datetime.now().year+10)]
 
 # List of Month
 monthList= {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
