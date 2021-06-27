@@ -28,7 +28,8 @@ monthList= {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug'
 
 d = [m for m in monthList.keys()]
 st.write(years)
-st.write(d)
+for m in monthList.keys():
+   st.write(m)
 
 # Standard Operating Hours per Day
 stdDayAvailHours = 24
