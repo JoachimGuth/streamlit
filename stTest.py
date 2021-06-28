@@ -60,15 +60,13 @@ def shiftConfig():
    if mSelect == 'All':
       machSelect = machines
    else:
-      machSelect = st.sidebar.multiselect('Machines:   ', machines)
-      machSelect = machSelect.sort()
+      machSelect = st.sidebar.multiselect('Machines:', machines)
+      #machSelect = machSelect
 
    # Select year to configure Production Calendar; def = current
    yearSelect = datetime.datetime.now().year
-   yearSelect = st.sidebar.selectbox("Year:  ", years)
+   yearSelect = st.sidebar.selectbox("Year:", years)
 
-
-   # Application - Month Selection
    # Select Months - default = 'All'
    mthSelect = 'All'
    monthSelect = list(monthList)
