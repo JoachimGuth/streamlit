@@ -24,16 +24,18 @@ years = [2021, 2022, 2023, 2024, 2025, 2026]
 #years = [yr for yr in range(datetime.datetime.now().year,datetime.datetime.now().year+10)]
 
 # List of Month
-monthList= {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
+monthDict = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
+monthList = [m for m in monthList.keys()]
+st.write(list(d))
 
-d = [m for m in monthList.keys()]
-for m in monthList.keys():
-   st.text(m)
+#for m in monthList.keys():
+   #st.text(m)
 
 # Standard Operating Hours per Day
 stdDayAvailHours = 24
 
-
+# Select Application - default: Shift Configuration
+mainSelect = 'Shift Config'
 mainSelect = st.radio('Select: ', ['Shift Config', 'Demand Analysis', 'Optimisation'])
 
 def displayOpHours(machine,month):
@@ -67,12 +69,12 @@ def shiftConfig():
 
    # Select Months - default = 'All'
    mthSelect = 'All'
-   monthSelect = monthList
+   monthSelect = list(monthList)
    mthSelect = st.sidebar.radio('Months',['All', 'Select'])
    if mthSelect == 'All':
-      monthSelect = monthList
+      monthSelect = list(monthList)
    else:
-      monthSelect = st.sidebar.multiselect('Months: ', monthList)
+      monthSelect = st.sidebar.multiselect('Months: ', list(monthList))
 
    #monthSelect = st.sidebar.selectbox ("Month: ", [ m for m,k  in monthlist.items()])
 
