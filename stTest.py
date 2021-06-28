@@ -84,7 +84,7 @@ def shiftConfig():
    shiftSelect = st.sidebar.selectbox ("Shift: ", [ m for m,k  in shiftOptions.items()])
 
    # Display current selection in main window
-   st.write("Machines: ", str(machSelect))
+   st.write("Machines: ", str(machSelect.sort()))
    st.write("Year: ", str(yearSelect))
    st.write("Months: ", str(monthSelect))
    st.write("Shift Model: ", str(shiftSelect))
