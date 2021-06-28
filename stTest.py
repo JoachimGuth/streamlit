@@ -26,7 +26,7 @@ years = [2021, 2022, 2023, 2024, 2025, 2026]
 # List of Month
 monthDict = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
 monthList = [m for m in monthDict.keys()]
-st.write(list(monthList))
+st.write(str(monthList))
 
 #for m in monthList.keys():
    #st.text(m)
@@ -61,6 +61,7 @@ def shiftConfig():
       machSelect = machines
    else:
       machSelect = st.sidebar.multiselect('Machines:   ', machines)
+      machSelect = machSelect.sort()
 
    # Select year to configure Production Calendar; def = current
    yearSelect = datetime.datetime.now().year
@@ -84,7 +85,7 @@ def shiftConfig():
    shiftSelect = st.sidebar.selectbox ("Shift: ", [ m for m,k  in shiftOptions.items()])
 
    # Display current selection in main window
-   st.write("Machines: ", str(machSelect.sort()))
+   st.write("Machines: ", str(machSelect))
    st.write("Year: ", str(yearSelect))
    st.write("Months: ", str(monthSelect))
    st.write("Shift Model: ", str(shiftSelect))
