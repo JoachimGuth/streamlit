@@ -26,10 +26,6 @@ years = [2021, 2022, 2023, 2024, 2025, 2026]
 # List of Month
 monthDict = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
 monthList = [m for m in monthDict.keys()]
-st.write(str(monthList))
-
-#for m in monthList.keys():
-   #st.text(m)
 
 # Standard Operating Hours per Day
 stdDayAvailHours = 24
@@ -37,6 +33,7 @@ stdDayAvailHours = 24
 # Select Application - default: Shift Configuration
 mainSelect = 'Shift Config'
 mainSelect = st.radio('Select: ', ['Shift Config', 'Demand Analysis', 'Optimisation'])
+
 
 def displayOpHours(machine,month):
    pass
@@ -61,7 +58,7 @@ def shiftConfig():
       machSelect = machines
    else:
       machSelect = st.sidebar.multiselect('Machines:', machines)
-      #machSelect = machSelect
+      machSelect = list(machSelect).sort()
 
    # Select year to configure Production Calendar; def = current
    yearSelect = datetime.datetime.now().year
@@ -75,8 +72,6 @@ def shiftConfig():
       monthSelect = list(monthList)
    else:
       monthSelect = st.sidebar.multiselect('Months: ', list(monthList))
-
-   #monthSelect = st.sidebar.selectbox ("Month: ", [ m for m,k  in monthlist.items()])
 
    # Shift model selection
    shiftOptions = { '2x8': 16, '3x8': 24, '2x12': 24 }
