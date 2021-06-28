@@ -45,7 +45,7 @@ def setOpHours(machine, month):
    pass
 
 
-
+# Application - Shift Configuration
 
 def shiftConfig():
 
@@ -67,6 +67,7 @@ def shiftConfig():
    yearSelect = st.sidebar.selectbox("Year:  ", years)
 
 
+   # Application - Month Selection
    # Select Months - default = 'All'
    mthSelect = 'All'
    monthSelect = list(monthList)
@@ -82,7 +83,7 @@ def shiftConfig():
    shiftOptions = { '2x8': 16, '3x8': 24, '2x12': 24 }
    shiftSelect = st.sidebar.selectbox ("Shift: ", [ m for m,k  in shiftOptions.items()])
 
-   # Display current selectin in main window
+   # Display current selection in main window
    st.write("Machines: ", str(machSelect))
    st.write("Year: ", str(yearSelect))
    st.write("Months: ", str(monthSelect))
