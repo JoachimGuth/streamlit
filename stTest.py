@@ -54,7 +54,7 @@ def setOpHours(machine, month):
 
 def shiftConfig():
 
-   st.write("Initially all machines will be available for production for all month with default shift of 3x8 hours. In standard shift offering , public holidays and weekends are considered as non operating days.Not selected machines and month will be left unchanged in terms of shift offering.")
+   st.write("Initially all machines will be available for production for all month with default shift of 3x8 hours. In standard shift offering, public holidays and weekends are considered as non operating days. You can change the shift offering for certain machines and months for a certain year by selecting respectively. Not selected machines and month will be left unchanged in terms of shift offering.")
    st.sidebar.title('Shift Configuration')
    st.sidebar.write("Available hours per day: "+ str(stdDayAvailHours))
 
