@@ -83,7 +83,7 @@ def shiftConfig():
 
    # Shift model selection
    shiftSelect = shiftOptionsList[2]
-   shiftSelect = st.sidebar.selectbox("Shift: ", [ m in shiftOptionsList])
+   shiftSelect = st.sidebar.selectbox("Shift: ", [ m in shiftOptionsDict.keys()])
 
    # Display current selection and ishift configuration in the main window
    
