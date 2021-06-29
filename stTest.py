@@ -30,6 +30,11 @@ monthList = [m for m in monthDict.keys()]
 # Standard Operating Hours per Day
 stdDayAvailHours = 24
 
+# Possible shift operating configurations
+shiftOptionsDict = { '2x8': 16, '3x8': 24, '2x12': 24 }
+shiftOptionsList = [s for s in shiftOptionsDict.keys()]
+
+
 # Select Application - default: Shift Configuration
 mainSelect = 'Shift Config'
 mainSelect = st.radio('Select: ', ['Shift Config', 'Demand Analysis', 'Optimisation'])
@@ -74,8 +79,7 @@ def shiftConfig():
       monthSelect = st.sidebar.multiselect('Months: ', list(monthList))
 
    # Shift model selection
-   shiftOptions = { '2x8': 16, '3x8': 24, '2x12': 24 }
-   shiftSelect = shiftOptions[1]
+   shiftSelect = shiftOptionsList[1]
    shiftSelect = st.sidebar.selectbox ("Shift: ", [ m for m,k  in shiftOptions.items()])
 
    # Display current selection and ishift configuration in the main window
