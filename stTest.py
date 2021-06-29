@@ -66,7 +66,7 @@ def shiftConfig():
       machSelect = machines
    else:
       machSelect = st.sidebar.multiselect('Machines:', machines)
-      machSelect = list(machSelect).sort()
+      machSelect = list(machSelect)
 
    # Select year to configure Production Calendar; def = current
    yearSelect = datetime.datetime.now().year
@@ -82,7 +82,7 @@ def shiftConfig():
       monthSelect = st.sidebar.multiselect('Months: ', list(monthList))
 
    # Shift model selection
-   shiftSelect = shiftOptionsList[1]
+   shiftSelect = shiftOptionsList[2]
    shiftSelect = st.sidebar.selectbox("Shift: ", [ m for m,k  in shiftOptionsDict.items()])
 
    # Display current selection and ishift configuration in the main window
