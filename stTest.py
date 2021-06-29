@@ -40,7 +40,10 @@ mainSelect = 'Shift Config'
 mainSelect = st.radio('Select: ', ['Shift Config', 'Demand Analysis', 'Optimisation'])
 
 
-def displayShiftConfig(machine,month):
+def displayShiftConfigData(machine,month):
+   pass
+
+def displayShiftConfigChart(machine,month):
    pass
 
 def setOpHours(machine, month):
@@ -80,7 +83,7 @@ def shiftConfig():
 
    # Shift model selection
    shiftSelect = shiftOptionsList[1]
-   shiftSelect = st.sidebar.selectbox ("Shift: ", [ m for m,k  in shiftOptions.items()])
+   shiftSelect = st.sidebar.selectbox("Shift: ", [ m for m,k  in shiftOptionsDict.items()])
 
    # Display current selection and ishift configuration in the main window
    
