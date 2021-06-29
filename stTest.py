@@ -75,6 +75,7 @@ def shiftConfig():
 
    # Shift model selection
    shiftOptions = { '2x8': 16, '3x8': 24, '2x12': 24 }
+   shiftSelect = shiftOptions[1]
    shiftSelect = st.sidebar.selectbox ("Shift: ", [ m for m,k  in shiftOptions.items()])
 
    # Display current selection and ishift configuration in the main window
