@@ -35,7 +35,7 @@ mainSelect = 'Shift Config'
 mainSelect = st.radio('Select: ', ['Shift Config', 'Demand Analysis', 'Optimisation'])
 
 
-def displayOpHours(machine,month):
+def displayShiftConfig(machine,month):
    pass
 
 def setOpHours(machine, month):
@@ -46,7 +46,7 @@ def setOpHours(machine, month):
 
 def shiftConfig():
 
-   st.write("Initially all machines will be available for all month with default shift of 3x8 hours. Not selected machines and month will be set to not available for production, shift will be set to 0x0 hours.")
+   st.write("Initially all machines will be available for production for all month with default shift of 3x8 hours. Not selected machines and month will be left unchanged in terms of shift offering.")
    st.sidebar.title('Shift Configuration')
    st.sidebar.write("Available hours per day: "+ str(stdDayAvailHours))
 
@@ -77,11 +77,20 @@ def shiftConfig():
    shiftOptions = { '2x8': 16, '3x8': 24, '2x12': 24 }
    shiftSelect = st.sidebar.selectbox ("Shift: ", [ m for m,k  in shiftOptions.items()])
 
-   # Display current selection in main window
+   # Display current selection and ishift configuration in the main window
+   
+   # Display currrent selection
    st.write("Machines: ", str(machSelect))
    st.write("Year: ", str(yearSelect))
    st.write("Months: ", str(monthSelect))
    st.write("Shift Model: ", str(shiftSelect))
+   
+   # Display shift config
+   maSelect = 'All'
+   maSelect = st.multiselect('Machines: ', machines)
+   moSelect = date.today().month
+   moSelect = st.multiselect('Month:  ', list(monthList))
+   
 
 
 def demandAnalysis():
