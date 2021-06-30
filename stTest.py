@@ -97,7 +97,9 @@ def shiftConfig():
    maSelect = 'All'
    maSelect = st.multiselect('Machines: ', machines)
    moSelect = date.today().month
-   moSelect = st.multiselect('Month:  ', list(monthList))
+   moSelect = st.multiselect('Month:  ', list(monthLidt))
+                                              
+                                     
    
 
 
