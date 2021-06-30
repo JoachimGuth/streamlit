@@ -40,6 +40,14 @@ mainSelect = 'Shift Config'
 mainSelect = st.radio('Select: ', ['Shift Config', 'Demand Analysis', 'Optimisation'])
 
 
+df = pd.DataFrame(columns=['Year', 'Month', 'Machine', 'mthDay', 'dayTye'])
+st.dataframe(df)
+
+# Initialises each day of a month for in the specified year witth the default shift config
+def initCal (df):
+   pass
+
+
 def displayShiftConfigData(machine,month):
    pass
 
@@ -82,9 +90,7 @@ def shiftConfig():
       monthSelect = st.sidebar.multiselect('Months: ', list(monthList))
 
    # Shift model selection
-   shiftSelect = shiftOptionsList[2]
-   #st.write(shiftSelect)
-   shiftSelect = st.sidebar.selectbox("Shift: ", [shiftOptionList[2], list(shiftOptionsList)])
+   shiftSelect = st.sidebar.selectbox("Shift: ", list(shiftOptionsList))
 
    # Display current selection and ishift configuration in the main window
    
