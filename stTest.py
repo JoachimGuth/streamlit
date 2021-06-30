@@ -82,8 +82,9 @@ def shiftConfig():
       monthSelect = st.sidebar.multiselect('Months: ', list(monthList))
 
    # Shift model selection
-   #shiftSelect = list(shiftOptionsList[2])
-   shiftSelect = st.sidebar.selectbox("Shift: ", list(shiftOptionsList))
+   shiftSelect = shiftOptionsList[2]
+   st.write(shiftSelect)
+   #shiftSelect = st.sidebar.selectbox("Shift: ", list(shiftOptionsList))
 
    # Display current selection and ishift configuration in the main window
    
