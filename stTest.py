@@ -74,8 +74,14 @@ def viewCalendar():
    st.sidebar.title('View Shift Schedules')
 
    # Select one Month - default: 'Jan'
-   monthSelect = 'Jan'
+   #monthSelect = 'Jan'
    monthSelect = st.sidebar.radio('Select Month', monthNameList)   
+   machineSelect = st.sidebar.radio('Select Machine', machines)
+  
+  
+   shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
+  
+  
    for x in shiftCal.index: 
        shiftCalView = shiftCal.loc[x] in monthSelect 
    st.dataframe(shiftCalView)
