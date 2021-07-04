@@ -72,13 +72,13 @@ def getWeekDay(year,month, day):
 def getDayType(year, month, day, country):
     weekday = getWeekDay(year, month, day)
     dayType = 'Wk'
-    if  weekday in ['Saturday'] and isPubHoliday(year, month, day, country) == 'True':
+    if  weekday in ['Sat'] and isPubHoliday(year, month, day, country) == 'True':
         dayType = 'PHSat'
-    elif weekday in ['Sunday'] and isPubHoliday(year, month, day, country) == 'True':
+    elif weekday in ['Sun'] and isPubHoliday(year, month, day, country) == 'True':
         dayType = 'PHSun'
-    elif weekday in ['Saturday'] and isPubHoliday(year, month, day, country) == 'False':
+    elif weekday in ['Sat'] and isPubHoliday(year, month, day, country) == 'False':
         dayType = 'Sat'
-    elif weekday in ['Sunday'] and isPubHoliday(year, month, day, country) == 'False':
+    elif weekday in ['Sun'] and isPubHoliday(year, month, day, country) == 'False':
         dayType = 'Sun'
     elif isPubHoliday(year, month, day, country) == 'True':
         dayType = 'PH'
