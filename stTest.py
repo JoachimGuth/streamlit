@@ -146,7 +146,7 @@ def optimisation():
 
 
 # Main Program Selection Loop
-if mainSelect == 'View Calendar'
+if mainSelect == 'View Calendar':
     viewCalendar()
 elif mainSelect == 'configureShift':
    configureShift()
