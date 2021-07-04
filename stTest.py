@@ -18,10 +18,10 @@ from prodCalendar import initShiftCalendar
 #st.write(pulp.listSolvers())
 #st.write(pulp.operating_system)
 
-st.title("Plant Optimisation")
+#st.title("Plant Optimisation")
 
 st.set_page_config(layout= "wide", page_title ="Plant Utilisation",
-                    initial_sidebar_state="collapsed",
+                    #initial_sidebar_state="collapsed",#
                     page_icon="🔮")
 
 # Global Plant Paramters
