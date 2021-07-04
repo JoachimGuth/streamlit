@@ -140,7 +140,7 @@ def demandAnalysis():
    st.sidebar.title('Demand Analysis')
    pass
 
-def optimisation():
+def optimiseUtilisation():
    st.sidebar.title('Optimisation')
    pass
 
