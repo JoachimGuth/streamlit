@@ -52,11 +52,9 @@ mainSelect = st.radio('Select: ', ['Shift Config', 'Demand Analysis', 'Optimisat
 
 #Initialize ShifttCalendar for year 2021
 # Eachday of the year is initialised for all available machines with a 2*8 hour shift and 5 days a week work schedule configuration 'wk.5d'
-df = pd.DataFrame()
-df = initShiftCalendar(2021, monthList , machines, '2x8', 'Singapore')
-st.dataframe(df)
-
-
+shiftCal = pd.DataFrame()
+shiftCal = initShiftCalendar(2021, monthList , machines, '2x8', 'Singapore')
+#st.dataframe(df)
 
 
 def displayShiftConfigData(machine,month):
@@ -68,12 +66,31 @@ def displayShiftConfigChart(machine,month):
 def setOpHours(machine, month):
    pass
 
+  
+  
+  
+# Application - Shift Configuration
+def viewCalendar():
+
+   st.sidebar.title('View Shift Schedules')
+
+   # Select one Month - default: 'Jan'
+   monthSelect = 'Jan'
+   monthSelect = st.sidebar.radio('Select Month', monthNameList)
+  
+   
+   
+   for x in shiftCal.index: 
+       shiftCalView = shiftCal.loc[x] in monthSelect 
+   st.dataframe(shiftCalView)
+ #End viewCalendar   
+    
 
 # Application - Shift Configuration
-
-def shiftConfig():
+def configureShift():
 
    st.write("Initially all machines will be available for production for all month with default shift of 3x8 hours. In standard shift offering, public holidays and weekends are considered as non operating days. You can change the shift offering for certain machines and months for a certain year by selecting respectively. Not selected machines and month will be left unchanged in terms of shift offering.")
+   
    st.sidebar.title('Shift Configuration')
    st.sidebar.write("Available hours per day: "+ str(stdDayAvailHours))
 
@@ -100,7 +117,7 @@ def shiftConfig():
    else:
       monthSelect = st.sidebar.multiselect('Months: ', list(monthList))
 
-   # Shift model selection
+   # Shift Type selection
    shiftSelect = st.sidebar.selectbox("Shift: ", list(shiftOptionsList))
 
    # Display current selection and ishift configuration in the main window
@@ -118,8 +135,6 @@ def shiftConfig():
    moSelect = st.multiselect('Month:  ', list(monthList))
                                               
                                      
-   
-
 
 def demandAnalysis():
    st.sidebar.title('Demand Analysis')
@@ -130,14 +145,21 @@ def optimisation():
    pass
 
 
-# Main Program Loop
-if mainSelect == 'Shift Config':
-   shiftConfig()
-elif mainSelect == 'Demand Analysis':
-   demandAnalysis()
-elif mainSelect == 'Optimisation':
-   optimisation()
+# Main Program Selection Loop
+if mainSelect == 'View Calendar'
+    viewCalendar()
+elif mainSelect == 'configureShift':
+   configureShift()
+elif mainSelect == 'analyseDemand':
+   analyseDemand()
+else mainSelect == 'optimiseUtilisation':
+   optimiseUtilisation()
 
+
+    
+    
+    
+    
 
 
 def table():
