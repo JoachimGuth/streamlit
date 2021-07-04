@@ -9,7 +9,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 #import pulp
 import streamlit as st
-st.set_page_config(layout="wide", page_title='LAS Explorer v.0.1')
+
+st.set_page_config(layout= "wide", page_title ="Plant Utilisation",
+                    initial_sidebar_state="collapsed",
+                    page_icon="🔮")
 
 import prodCalendar
 
