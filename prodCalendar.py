@@ -20,7 +20,7 @@ pd.set_option('display.max_rows', None)
 # Global Data
 
 machines = ['M1', 'M2', 'M3','M4', 'M5', 'M6', 'M7', 'M8']
-weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
 monthsDict = {'Jan': 1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10,'Nov':11, 'Dec':12}
 monthsNameList = [n for n in monthsDict]
