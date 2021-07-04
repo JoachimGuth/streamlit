@@ -139,30 +139,3 @@ def table():
       c2 = st.write(f'{i}')
       c3 = st.write(f'{i}')
       c4 = st.write(f'{i}')
-
-
-
-# Nbr of Days of a month in a particulat year
-class DaysPerMonth(object):
-   def numberOfDays(self, y, m):
-      leap = 0
-      if y % 400 == 0:
-         leap = 1
-      elif y % 100 == 0:
-         leap = 0
-      elif y % 4 == 0:
-         leap = 1
-      if m==2:
-         return 28 + leap
-      list = [1,3,5,7,8,10,12]
-      if m in list:
-         return 31
-      return 30
-
-# Instance of the Class Days per Month
-dpm = DaysPerMonth()
-
-
-
-
-
