@@ -146,13 +146,13 @@ def optimisation():
 
 
 # Main Program Selection Loop
-if mainSelect == 'View Calendar':
+if mainSelect == 'viewCalendar':
     viewCalendar()
 elif mainSelect == 'configureShift':
    configureShift()
 elif mainSelect == 'analyseDemand':
    analyseDemand()
-else mainSelect == 'optimiseUtilisation':
+elif mainSelect == 'optimiseUtilisation':
    optimiseUtilisation()
 
 
