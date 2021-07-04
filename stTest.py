@@ -18,7 +18,7 @@ from prodCalendar import initShiftCalendar
 #st.write(pulp.listSolvers())
 #st.write(pulp.operating_system)
 
-#st.title("Plant Optimisation")
+st.title("Plant Optimisation")
 
 st.set_page_config(layout= "wide", page_title ="Plant Utilisation",
                     initial_sidebar_state="collapsed",
@@ -47,7 +47,7 @@ shiftOptionsList = [s for s in shiftOptionsDict.keys()]
 
 # Select Application - default: Shift Configuration
 mainSelect = 'viewCalendar'
-mainSelect = st.radio('Select: ', ['viewCalendar', 'configureShift', 'analyseDemand', 'optimiseUtilisation'])
+mainSelect = st.sidebar.radio('Select: ', ['viewCalendar', 'configureShift', 'analyseDemand', 'optimiseUtilisation'])
 
 
 #Initialize ShifttCalendar for year 2021
@@ -71,15 +71,11 @@ def setOpHours(machine, month):
   
 # Application - Shift Configuration
 def viewCalendar():
-
    st.sidebar.title('View Shift Schedules')
 
    # Select one Month - default: 'Jan'
    monthSelect = 'Jan'
-   monthSelect = st.sidebar.radio('Select Month', monthNameList)
-  
-   
-   
+   monthSelect = st.sidebar.radio('Select Month', monthNameList)   
    for x in shiftCal.index: 
        shiftCalView = shiftCal.loc[x] in monthSelect 
    st.dataframe(shiftCalView)
