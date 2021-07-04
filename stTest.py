@@ -10,9 +10,7 @@ import matplotlib.pyplot as plt
 #import pulp
 import streamlit as st
 
-st.set_page_config(layout= "wide", page_title ="Plant Utilisation",
-                    initial_sidebar_state="collapsed",
-                    page_icon="🔮")
+
 
 from prodCalendar import initShiftCalendar
 
@@ -21,6 +19,10 @@ from prodCalendar import initShiftCalendar
 #st.write(pulp.operating_system)
 
 #st.title("Plant Optimisation")
+
+st.set_page_config(layout= "wide", page_title ="Plant Utilisation",
+                    initial_sidebar_state="collapsed",
+                    page_icon="🔮")
 
 # Global Plant Paramters
 # Machines available for production
