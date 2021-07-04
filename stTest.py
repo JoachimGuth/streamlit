@@ -78,7 +78,7 @@ def viewCalendar():
    monthSelect = st.sidebar.radio('Select Month', monthNameList)   
    machineSelect = st.sidebar.radio('Select Machine', machines)
    df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
-   write (df)
+   st.write (df)
  #End viewCalendar   
     
 
