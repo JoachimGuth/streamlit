@@ -9,6 +9,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 #import pulp
 import streamlit as st
+st.set_page_config(layout="wide", page_title='LAS Explorer v.0.1')
 
 import prodCalendar
 
