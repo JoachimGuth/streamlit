@@ -32,7 +32,7 @@ years = [2021, 2022, 2023, 2024, 2025, 2026]
 
 # List of Month
 monthDict = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
-monthList = [m for m in monthDict.keys()]
+monthList = [m for m in monthDict.values()]
 
 # Standard Operating Hours per Day
 stdDayAvailHours = 24
