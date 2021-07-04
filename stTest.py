@@ -6,7 +6,7 @@ from datetime import date
 import datetime
 import numpy as np
 import pandas as pd
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 #import pulp
 import streamlit as st
 
@@ -43,12 +43,13 @@ mainSelect = 'Shift Config'
 mainSelect = st.radio('Select: ', ['Shift Config', 'Demand Analysis', 'Optimisation'])
 
 
-df = pd.DataFrame(columns=['Year', 'Month', 'Machine', 'mthDay', 'dayTye'])
-st.dataframe(df)
+#Initialize ShifttCalendar for year 2021
+# Eachday of the year is initialised for all available machines with a 2*8 hour shift and 5 days a week work schedule configuration 'wk.5d'
+df = pd.DataFrame()
+df = initShiftCalendar(2021, monthlist , machines, '2x8', 'Singapore')
+df
 
-# Initialises each day of a month for in the specified year witth the default shift config
-def initCal (df):
-   pass
+
 
 
 def displayShiftConfigData(machine,month):
