@@ -14,7 +14,7 @@ st.set_page_config(layout= "wide", page_title ="Plant Utilisation",
                     initial_sidebar_state="collapsed",
                     page_icon="🔮")
 
-from prodCalendar import prodCalendar.prodCalendar
+from prodCalendar import initShitCalendar
 
 
 #st.write(pulp.listSolvers())
