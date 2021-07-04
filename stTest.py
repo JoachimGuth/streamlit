@@ -51,7 +51,7 @@ mainSelect = st.radio('Select: ', ['Shift Config', 'Demand Analysis', 'Optimisat
 # Eachday of the year is initialised for all available machines with a 2*8 hour shift and 5 days a week work schedule configuration 'wk.5d'
 df = pd.DataFrame()
 df = initShiftCalendar(2021, monthList , machines, '2x8', 'Singapore')
-df
+st.dataframe(df)
 
 
 
