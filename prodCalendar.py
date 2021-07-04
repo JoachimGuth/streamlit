@@ -7,7 +7,7 @@ from datetime import datetime
 from datetime import date
 import holidays
 import matplotlib.pyplot as plt
-%matplotlib inline
+#%matplotlib inline
 
 import os
 for dirname, _, filenames in os.walk('/kaggle/input'):
