@@ -144,7 +144,8 @@ def initShiftCalendar(year, months, machines, shiftType, country):
                 else:
                     _shiftType = shiftType
                 shiftHours = shiftTypesDict[_shiftType]
-                shiftDays.append([year, mo, day, weekday, dayType, ma, _shiftType, shiftHours,shiftConfig])
+                mth = monthNameList[mo]
+                shiftDays.append([year, mth, day, weekday, dayType, ma, _shiftType, shiftHours,shiftConfig])
     shiftCalDF= pd.DataFrame(shiftDays, columns= ['Year','Month','Day', 'WeekDay','DayType', 'Machine','ShiftType','ShiftHours', 'ShiftConfig'] ) 
     return (shiftCalDF)
   
