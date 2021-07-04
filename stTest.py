@@ -10,7 +10,7 @@ import pandas as pd
 #import pulp
 import streamlit as st
 
-import prodCal.py
+import prodCalendar.py
 
 
 #st.write(pulp.listSolvers())
