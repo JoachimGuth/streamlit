@@ -46,8 +46,8 @@ shiftOptionsList = [s for s in shiftOptionsDict.keys()]
 
 
 # Select Application - default: Shift Configuration
-mainSelect = 'Shift Config'
-mainSelect = st.radio('Select: ', ['Shift Config', 'Demand Analysis', 'Optimisation'])
+mainSelect = 'viewCalendar'
+mainSelect = st.radio('Select: ', ['viewCalendar', 'configureShift', 'analyseDemand', 'optimiseUtilisation'])
 
 
 #Initialize ShifttCalendar for year 2021
