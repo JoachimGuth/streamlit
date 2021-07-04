@@ -20,7 +20,7 @@ from prodCalendar import initShiftCalendar
 #st.write(pulp.listSolvers())
 #st.write(pulp.operating_system)
 
-st.title("Plant Optimisation")
+#st.title("Plant Optimisation")
 
 # Global Plant Paramters
 # Machines available for production
