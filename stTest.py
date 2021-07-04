@@ -80,11 +80,6 @@ def viewCalendar():
   
   
    shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
-  
-  
-   for x in shiftCal.index: 
-       shiftCalView = shiftCal.loc[x] in monthSelect 
-   st.dataframe(shiftCalView)
  #End viewCalendar   
     
 
