@@ -48,6 +48,8 @@ shiftOptionsList = [s for s in shiftOptionsDict.keys()]
 
 
 # Select Application - default: Shift Configuration
+st.sidebar.subheader('Main Menu')
+
 mainSelect = 'viewCalendar'
 mainSelect = st.sidebar.radio('Select: ', ['viewCalendar', 'configureShift', 'analyseDemand', 'optimiseUtilisation'])
 
