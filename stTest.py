@@ -81,7 +81,7 @@ def viewCalendar():
    df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
     
    st.write(monthSelect, machineSelect)
-   st.dataframe(df[['Day', 'WeekDay' 'DayType', 'ShiftType','ShiftHours]])
+   df[['Day', 'WeekDay' 'DayType', 'ShiftType','ShiftHours]]
   
  #End viewCalendar   
     
