@@ -74,6 +74,7 @@ def setOpHours(machine, month):
 # Application - View Shift Calendar
 def viewCalendar():
    st.subheader ('View Shift Schedules')
+   st.sidebar.subheader('View Shift Schedule')
 
    # Select one Month
    monthSelect = st.sidebar.radio('Select Month', monthNameList)   
