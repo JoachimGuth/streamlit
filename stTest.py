@@ -15,6 +15,8 @@ import streamlit as st
 from prodCalendar import initShiftCalendar
 
 
+pd.set_option('display.max_rows', None)
+
 #st.write(pulp.listSolvers())
 #st.write(pulp.operating_system)
 
