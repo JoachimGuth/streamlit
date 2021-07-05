@@ -50,11 +50,11 @@ mainSelect = 'viewCalendar'
 mainSelect = st.sidebar.radio('Select: ', ['viewCalendar', 'configureShift', 'analyseDemand', 'optimiseUtilisation'])
 
 
-#Initialize ShifttCalendar for year 2021
+# Initialize and generate a ShifttCalendar for a particular year 
 # Eachday of the year is initialised for all available machines with a 2*8 hour shift and 5 days a week work schedule configuration 'wk.5d'
 shiftCal = pd.DataFrame()
 shiftCal = initShiftCalendar(2021, monthList , machines, '2x8', 'Singapore')
-#st.dataframe(df)
+
 
 
 def displayShiftConfigData(machine,month):
@@ -69,16 +69,16 @@ def setOpHours(machine, month):
   
   
   
-# Application - Shift Configuration
+# Application - View Shift Calendar
 def viewCalendar():
    st.subheader ('View Shift Schedules')
 
-   # Select one Month - default: 'Jan'
-   #monthSelect = 'Jan'
+   # Select one Month
    monthSelect = st.sidebar.radio('Select Month', monthNameList)   
    machineSelect = st.sidebar.radio('Select Machine', machines)
    df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
-   st.table(df['Day', 'DayType', 'ShiftType'])
+   df['Day', 'DayType', 'ShiftType']
+  
  #End viewCalendar   
     
 
