@@ -127,6 +127,13 @@ def setShiftConfig (shiftCalDF, months, machines, shifttype, shiftconfig):
                         shiftCalDF.loc[x, "ShiftConfig"] = shiftconfig
     return(shiftCalDF)
 
+def dispShiftHoursMonthMachine(shiftCalDF, months, machines):
+    tempDF = pd.DataFrame()
+    tempDF = shiftCalDF.groupby(['Month','Machine'])['ShiftHours'].sum().reset_index()
+    tempDF = tempDF.pivot(index='Month', columns = 'Machine', values='ShiftHours')
+    matrixDF = tempDF.loc[months,machines]
+    return(matrixDF)
+
 # Initialises a shift calendar as pandas dataframe
 # Each day for the specified year, months and mchines will be initialised with the nbr of the day, type of day, type of shift
 # Shift Types and hours are set for workdays only, Public Holidays and Weekends  
@@ -144,9 +151,6 @@ def initShiftCalendar(year, months, machines, shiftType, country):
                 else:
                     _shiftType = shiftType
                 shiftHours = shiftTypesDict[_shiftType]
-                mth = monthsNameList[mo-1]
-                shiftDays.append([year, mth, day, weekday, dayType, ma, _shiftType, shiftHours,shiftConfig])
+                shiftDays.append([year, monthsNameList[mo-1], day, weekday, dayType, ma, _shiftType, shiftHours,shiftConfig])
     shiftCalDF= pd.DataFrame(shiftDays, columns= ['Year','Month','Day', 'WeekDay','DayType', 'Machine','ShiftType','ShiftHours', 'ShiftConfig'] ) 
     return (shiftCalDF)
-  
-
