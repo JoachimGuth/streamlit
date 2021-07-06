@@ -83,7 +83,7 @@ def viewCalendar():
    dispShiftHoursMonthMachine(df,monthsNsameList, machines)
 
    # Select one Month
-   monthSelect = st.sidebar.radio('Select Month', [monthNameList)   
+   monthSelect = st.sidebar.radio('Select Month', [monthsNameList)   
    machineSelect = st.sidebar.radio('Select Machine', machines)
    df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
     
