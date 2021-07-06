@@ -80,7 +80,7 @@ def viewCalendar():
   
    # Overview and Summaries
    shifttHoursSummary = st.sidebar.radio('ShiftHours Summary', ['ShiftHours']) 
-   dispShiftHoursMonthMachine(df,monthsNsameList, machines)
+   dispShiftHoursMonthMachine(df,monthsNameList, machines)
 
    # Select one Month
    monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
