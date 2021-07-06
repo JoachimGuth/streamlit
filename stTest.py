@@ -35,9 +35,9 @@ years = [2021, 2022, 2023, 2024, 2025, 2026]
 #years = [yr for yr in range(datetime.datetime.now().year,datetime.datetime.now().year+10)]
 
 # List of Month
-monthDict = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
-monthsNbrList = [m for m in monthDict.values()]
-monthsNameList = [n for n in monthDict.keys()]
+monthsDict = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
+monthsNbrList = [m for m in monthsDict.values()]
+monthsNameList = [n for n in monthsDict.keys()]
 
 # Standard Operating Hours per Day
 stdDayAvailHours = 24
@@ -57,7 +57,7 @@ mainSelect = st.sidebar.radio('Select: ', ['viewCalendar', 'configureShift', 'an
 # Initialize and generate a ShifttCalendar for a particular year 
 # Eachday of the year is initialised for all available machines with a 2*8 hour shift and 5 days a week work schedule configuration 'wk.5d'
 shiftCal = pd.DataFrame()
-shiftCal = initShiftCalendar(2021, monthList , machines, '2x8', 'Singapore')
+shiftCal = initShiftCalendar(2021, monthsNbrList, machines, '2x8', 'Singapore')
 
 
 
