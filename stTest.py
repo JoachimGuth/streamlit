@@ -80,7 +80,8 @@ def viewCalendar():
    st.sidebar.subheader('View Shift Schedule')
   
    # Overview and Summaries
-   if shiftHoursSummary = st.sidebar.radio('ShiftHours Summary', ['ShiftHours']) == 'ShiftHOurs': 
+   shiftHoursSummary = st.sidebar.radio('ShiftHours Summary', ['ShiftHours']) 
+   if shiftHoursSummary == 'ShiftHours':
        shdf = dispShiftHoursMonthMachine(shiftCal, monthsNameList, machines)
        st.dataframe(stdf)
    else
