@@ -76,7 +76,7 @@ def setOpHours(machine, month):
   
 # Application - View Shift Calendar
 def viewCalendar():
-   st.subheader ('View Shift Schedules')
+   st.header ('View Shift Calendar')
    st.sidebar.subheader('View Shift Schedule')
   
    # Overview and Summaries
@@ -145,7 +145,7 @@ def configureShift():
                                               
                                      
 
-def demandAnalysis():
+def analyseDemand():
    st.sidebar.title('Demand Analysis')
    pass
 
