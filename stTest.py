@@ -119,12 +119,12 @@ def configureShift():
 
    # Select Months - default = 'All'
    mthSelect = 'All'
-   monthSelect = list(monthList)
+   monthSelect = list(monthsNameList)
    mthSelect = st.sidebar.radio('Months',['All', 'Select'])
    if mthSelect == 'All':
-      monthSelect = list(monthList)
+      monthSelect = list(monthsNameList)
    else:
-      monthSelect = st.sidebar.multiselect('Months: ', list(monthList))
+      monthSelect = st.sidebar.multiselect('Months: ', list(monthsNameList))
 
    # Shift Type selection
    shiftSelect = st.sidebar.selectbox("Shift: ", list(shiftOptionsList))
