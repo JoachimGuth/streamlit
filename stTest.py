@@ -80,16 +80,16 @@ def viewCalendar():
    st.sidebar.subheader('View Shift Schedule')
   
    # Overview and Summaries
-   shifttHoursSummary = st.sidebar.radio('ShiftHours Summary', ['ShiftHours']) 
-   dispShiftHoursMonthMachine(shiftCal, monthsNameList, machines)
-
+   if shifttHoursSummary = st.sidebar.radio('ShiftHours Summary', ['ShiftHours']): 
+       shdf = dispShiftHoursMonthMachine(shiftCal, monthsNameList, machines)
+       st.dataframe(stdf)
+   else
    # Select one Month
-   monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
-   machineSelect = st.sidebar.radio('Select Machine', machines)
-   df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
-    
-   st.write(monthSelect, machineSelect)
-   st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShiftHours']])
+      monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
+      machineSelect = st.sidebar.radio('Select Machine', machines)
+      df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
+      st.write(monthSelect, machineSelect)
+      st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShiftHours']])
   
  #End viewCalendar   
     
