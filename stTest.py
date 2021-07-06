@@ -83,7 +83,7 @@ def viewCalendar():
    shiftHoursSummary = st.sidebar.radio('ShiftHours Summary', ['ShiftHours']) 
    if shiftHoursSummary == 'ShiftHours':
        shdf = dispShiftHoursMonthMachine(shiftCal, monthsNameList, machines)
-       st.dataframe(stdf)
+       st.dataframe(shdf)
    else
    # Select one Month
       monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
