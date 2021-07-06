@@ -36,8 +36,8 @@ years = [2021, 2022, 2023, 2024, 2025, 2026]
 
 # List of Month
 monthDict = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
-monthList = [m for m in monthDict.values()]
-monthNameList = [n for n in monthDict.keys()]
+monthsNbrList = [m for m in monthDict.values()]
+monthsNameList = [n for n in monthDict.keys()]
 
 # Standard Operating Hours per Day
 stdDayAvailHours = 24
@@ -77,9 +77,13 @@ def setOpHours(machine, month):
 def viewCalendar():
    st.subheader ('View Shift Schedules')
    st.sidebar.subheader('View Shift Schedule')
+  
+   # Overview and Summaries
+   shifttHoursSummary = st.sidebar.radio('ShiftHours Summary', ['ShiftHours']) 
+   dispShiftHoursMonthMachine(df,monthsNsameList, machines)
 
    # Select one Month
-   monthSelect = st.sidebar.radio('Select Month', monthNameList)   
+   monthSelect = st.sidebar.radio('Select Month', [monthNameList)   
    machineSelect = st.sidebar.radio('Select Machine', machines)
    df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
     
