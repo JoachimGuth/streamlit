@@ -13,6 +13,7 @@ import streamlit as st
 
 
 from prodCalendar import initShiftCalendar
+from prodCalendar import dipShiftHoursMonthMachine
 
 
 pd.set_option('display.max_rows', None)
