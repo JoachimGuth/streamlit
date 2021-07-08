@@ -83,9 +83,9 @@ def viewCalendar():
    shiftHoursSummary = st.sidebar.radio('Calendar View', ['Overview','Details']) 
    if shiftHoursSummary == 'Overview':
        typeselection = st.sidebar.radio('Type', ['ShiftHours','WorkDays']) 
-       if typeselection == 'ShiftHours'
+       if typeselection == 'ShiftHours':
           shdf = dispShiftHoursMonthMachine(shiftCal, monthsNameList, machines)
-        elif typeselection == 'WorkDays'
+        elif typeselection == 'WorkDays':
           shdf = dispShiftHoursMonthMachine(shiftCal, monthsNameList, machines)
        st.dataframe(shdf)
    else:
