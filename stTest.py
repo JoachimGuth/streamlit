@@ -138,8 +138,8 @@ def configureShift():
    mSelect = st.sidebar.radio('Machines',['All', 'Select'])
    if mSelect == 'All':
       machSelect = machines
-   else:
-      machSelect = st.sidebar.multiselect('Machines:', machines)
+   elif mSelect == 'Select':
+      machSelect = st.sidebar.selectbox('Machines:', machines)
       machSelect = list(machSelect)
 
    # Select year to configure Production Calendar; def = current
