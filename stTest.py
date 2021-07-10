@@ -140,9 +140,9 @@ def configureShift():
    st.sidebar.subheader('Configure Shift Calendar')
    machSelect = list(machines)
    monthSelect = list(monthsNameList)
-   yearSelect = date.today().year
-   shiftTypeSelect = '2x8'
-   shiftConfigSelect = 'wk.d5'
+   yearSelect = currentYear
+   shiftTypeSelect = defaultShiftTypw
+   shiftConfigSelect = defaultConfig
     
    # Select avaialble Machines - default: 'All'
    mselect = 'All'
