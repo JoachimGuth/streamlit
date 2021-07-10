@@ -150,7 +150,7 @@ def initShiftCalendar(year, months, machines, shiftType, country):
                     _shiftType = '0x0'
                 else:
                     _shiftType = shiftType
-                ShftHrs = shiftTypesDict[_shiftType]
+                shftHrs = shiftTypesDict[_shiftType]
                 if shftHrs == 0: 
                     workday = 0 
                 else: 
