@@ -141,7 +141,7 @@ def configureShift():
    machSelect = list(machines)
    monthSelect = list(monthsNameList)
    yearSelect = currentYear
-   shiftTypeSelect = defaultShiftTypw
+   shiftTypeSelect = defaultShiftType
    shiftConfigSelect = defaultConfig
     
    # Select avaialble Machines - default: 'All'
