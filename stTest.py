@@ -97,7 +97,7 @@ def viewCalendar():
           shdf = dispShiftWorkdaysMthMach(shiftCal, monthsNameList, machines)
        elif typeselection == 'Output':
           st.subheader('Production Output in kg/mth')
-          shdf = dispOuttputMthMach(shiftCal, monthsNameList, machines)
+          shdf = dispOutputMthMach(shiftCal, monthsNameList, machines)
        st.dataframe(shdf)
    else:
    # Select one Month
