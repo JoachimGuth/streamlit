@@ -139,7 +139,7 @@ def configureShift():
     
    # Select avaialble Machines - default: 'All'
    mselect = 'All'
-   mSelect = st.sidebar.radio('Machines': ['All', 'Machines'])
+   mSelect = st.sidebar.radio('Machines',['All', 'Machines'])
    if mSelect == 'All':
       machSelect = list(machines)
    elif mSelect == 'Machines':
