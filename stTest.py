@@ -34,6 +34,8 @@ st.set_page_config(layout= "wide", page_title ="Plant Utilisation",
 # Machines available for production
 # General - Common Data
 
+
+
 machines = ['M1', 'M2', 'M3','M4', 'M5', 'M6', 'M7', 'M8']
 
 machineOutputKgHour = {'M1': 15, 'M2': 25, 'M3': 30, 'M4': 30, 'M5': 35, 'M6': 40, 'M7': 55, 'M8': 80}
@@ -48,16 +50,19 @@ monthsNbrList = [ n for  n in monthsDict.values()]
 shiftTypesDict = {'0x0': 0, '2x8': 16, '3x8': 24, '2x12': 24}
 shiftTypesNameList = [s for s in shiftTypesDict]
 shiftTypesHoursList = [n for n in shiftTypesDict.values()]
+defaultShiftType = '3x8'
 
 shiftConfigDict = {'wk.5d': 0, 'wksat.6d': 1, 'wkend.7d': 2, 'phwk.5d': 3, 'ph.all':4}
 shiftConfigNameList = [t for t in shiftConfigDict]
 shiftConfigNbrList = [c for c in shiftConfigDict.values()]
+defaultConfig = 'wk.d5'
 
 dayTypesDict = {'Wk':0, 'Sat':1, 'Sun': 2, 'PH': 3, 'PHSat': 4, 'PHSun': 5}
 dayTypesNameList = [t for t in dayTypesDict]
 dayTypesNbrList = [c for c in dayTypesDict.values()]
 
 yrList = [cy for cy in range(date.today().year,date.today().year+5)]
+currentYear = date.today().year
 
 # End - General & common Paramters for plant and shift-calendar configuration
 ################################ E N D ##########################################
@@ -68,7 +73,9 @@ yrList = [cy for cy in range(date.today().year,date.today().year+5)]
 # Initialize a Default ShifttCalendar for the  current year 
 # Eachday of the year is initialised for all available machines with a 2*8 hour shift and 5 days a week work schedule configuration 'wk.5d'
 shiftCal = pd.DataFrame()
-shiftCal = initShiftCalendar(2021, monthsNbrList, machines, '2x8', 'Singapore')
+
+
+shiftCal = initShiftCalendar(currentYear, monthsNbrList, machines, defaultShiftType, 'Singapore')
 ################################ E N D ##########################################
 
 
