@@ -91,13 +91,13 @@ def viewCalendar():
        typeselection = st.sidebar.radio('Type', ['ShiftHours','WorkDays', 'Ouput']) 
        if typeselection == 'ShiftHours':
           st.subheader('Shift Hours')
-          shdf = dispShftHrsMonthMachine(shiftCal, monthsNameList, machines)
+          shdf = dispShftHrsMthMach(shiftCal, monthsNameList, machines)
        elif typeselection == 'WorkDays':
           st.subheader('Working Days')
-          shdf = dispShiftWorkdaysMonthMachine(shiftCal, monthsNameList, machines)
+          shdf = dispShiftWorkdaysMthMach(shiftCal, monthsNameList, machines)
        elif typeselection == 'Output':
           st.subheader('Production Output in kg/mth')
-          shdf = dispShiftOuttputMthMach(shiftCal, monthsNameList, machines)
+          shdf = dispOuttputMthMach(shiftCal, monthsNameList, machines)
        st.dataframe(shdf)
    else:
    # Select one Month
