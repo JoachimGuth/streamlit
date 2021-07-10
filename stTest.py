@@ -59,21 +59,20 @@ shiftOptionsList = [s for s in shiftOptionsDict.keys()]
 # Eachday of the year is initialised for all available machines with a 2*8 hour shift and 5 days a week work schedule configuration 'wk.5d'
 shiftCal = pd.DataFrame()
 shiftCal = initShiftCalendar(2021, monthsNbrList, machines, '2x8', 'Singapore')
-################################ E N D ########################################
+################################ E N D ##########################################
 
 
 ############################## S T A R  T #######################################
 # Main Application Selection Loop
 # Select Application 
 st.sidebar.subheader('Main Menu')
-mainSelect = st.sidebar.radio('Select: ', ['View Shift Calendar', 'ConfigureShift Calendar', 'Analyse Demand', 'Optimisw Plant Utilisation'])
-################################ E N D ########################################
+mainSelect = st.sidebar.radio('Select: ', ['View Shift Calendar', 'Configure Shift Calendar', 'Analyse Demand', 'Optimise Plant Utilisation'])
+################################ E N D ##########################################
 
 
-
-#######################################################################
+############################## S T A R  T #######################################
 # Application - View Shift Calendar
-#######################################################################
+#################################################################################
 def viewCalendar():
    st.header ('Shift Calendar')
    st.sidebar.subheader('View Shift Calendar')
@@ -81,13 +80,16 @@ def viewCalendar():
    # Overview and Summaries
    shiftHoursSummary = st.sidebar.radio('Calendar View', ['Overview','Details']) 
    if shiftHoursSummary == 'Overview':
-       typeselection = st.sidebar.radio('Type', ['ShiftHours','WorkDays']) 
+       typeselection = st.sidebar.radio('Type', ['ShiftHours','WorkDays', 'Ouput']) 
        if typeselection == 'ShiftHours':
           st.subheader('Shift Hours')
           shdf = dispShiftHoursMonthMachine(shiftCal, monthsNameList, machines)
        elif typeselection == 'WorkDays':
           st.subheader('Working Days')
           shdf = dispShiftWorkdaysMonthMachine(shiftCal, monthsNameList, machines)
+       elif typeselection == 'Output':
+          st.subheader('Production Output in kg/mth')
+          shdf = dispShiftOuttputMthMach(shiftCal, monthsNameList, machines)
        st.dataframe(shdf)
    else:
    # Select one Month
@@ -149,36 +151,40 @@ def configureShift():
    maSelect = st.multiselect('Machines: ', machines)
    moSelect = date.today().month
    moSelect = st.multiselect('Month:  ', list(monthsNameList))
+################################ E N D ##########################################
                                               
                                      
 
-#######################################################################
+#################################################################################
 # Application - Demand Analysis
-########################################################################
+#################################################################################
 def analyseDemand():
    st.sidebar.title('Demand Analysis')
    pass
+################################ E N D ##########################################
 
-#######################################################################
+#################################################################################
 # Application - Machine Utilisattion
-########################################################################
+#################################################################################
 def optimiseUtilisation():
    st.sidebar.title('Optimisation')
    pass
+################################ E N D ##########################################
+
 
 #######################################################################
 # Main Program Loop
-########################################################################
+################################################################################
 if mainSelect == 'View Shift Calendar':
     viewCalendar()
 elif mainSelect == 'Configure Shift Calendar':
    configureShift()
-elif mainSelect == 'analyseDemand':
+elif mainSelect == 'Analyse Demand':
    analyseDemand()
-elif mainSelect == 'optimiseUtilisation':
+elif mainSelect == 'Optimise Plant Utilisation':
    optimiseUtilisation()
 # End - Main Program Loop
-########################################################################
+################################ E N D ##########################################
     
     
     
