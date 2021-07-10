@@ -17,14 +17,16 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
 pd.set_option('display.max_rows', None)
 
 
-# Global Data
+# General - Common Data
 
 machines = ['M1', 'M2', 'M3','M4', 'M5', 'M6', 'M7', 'M8']
-weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
 monthsDict = {'Jan': 1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10,'Nov':11, 'Dec':12}
 monthsNameList = [n for n in monthsDict]
 monthsNbrList = [ n for  n in monthsDict.values()]
+
 
 shiftTypesDict = {'0x0': 0, '2x8': 16, '3x8': 24, '2x12': 24}
 shiftTypesNameList = [s for s in shiftTypesDict]
@@ -37,6 +39,8 @@ shiftTypesNbrList = [c for c in shiftTypesDict.values()]
 dayTypesDict = {'Wk':0, 'Sat':1, 'Sun': 2, 'PH': 3, 'PHSat': 4, 'PHSun': 5}
 dayTypesNameList = [t for t in dayTypesDict]
 dayTypesNbrList = [c for c in dayTypesDict.values()]
+
+
 
 #Function - Determine nbr of days of a month for a particulat year
 def nbrOfMonthDays(year, month):
@@ -63,7 +67,7 @@ def isPubHoliday(year, month, day, country):
                 return('True')
             if d[0].month > month:
                 break
-        return('False')
+    return('False')
 
 def getWeekDay(year,month, day):
     wkday = date(year, month, day).weekday()
@@ -72,13 +76,13 @@ def getWeekDay(year,month, day):
 def getDayType(year, month, day, country):
     weekday = getWeekDay(year, month, day)
     dayType = 'Wk'
-    if  weekday in ['Sat'] and isPubHoliday(year, month, day, country) == 'True':
+    if  weekday in ['Saturday'] and isPubHoliday(year, month, day, country) == 'True':
         dayType = 'PHSat'
-    elif weekday in ['Sun'] and isPubHoliday(year, month, day, country) == 'True':
+    elif weekday in ['Sunday'] and isPubHoliday(year, month, day, country) == 'True':
         dayType = 'PHSun'
-    elif weekday in ['Sat'] and isPubHoliday(year, month, day, country) == 'False':
+    elif weekday in ['Saturday'] and isPubHoliday(year, month, day, country) == 'False':
         dayType = 'Sat'
-    elif weekday in ['Sun'] and isPubHoliday(year, month, day, country) == 'False':
+    elif weekday in ['Sunday'] and isPubHoliday(year, month, day, country) == 'False':
         dayType = 'Sun'
     elif isPubHoliday(year, month, day, country) == 'True':
         dayType = 'PH'
@@ -88,12 +92,12 @@ def getDayType(year, month, day, country):
 
 # Set 0r Change ShiftType and ShiftHours of the shiftCalDF. ShiftConfig remains unchanged
 def setShiftType(shiftCalDF, months ,machines, shifttype):
-  for x in shiftCalDF.index: 
-     if shiftCalDF.loc[x, "Month"] in months:
-        if shifttCalDF.loc[x, "Machine"] in machines:
-           if shiftCaldf.loc[x, "ShiftHours"] != 0:
-              shiftCalDF.loc[x, "ShiftType"] = shifttype
-              shiftCalDF.loc[x, "ShiftHours"] = shiftTypesDict[shifttype]
+    for x in shiftCalDF.index: 
+        if shiftCalDF.loc[x, "Month"] in months:
+            if shifttCalDF.loc[x, "Machine"] in machines:
+                if shiftCaldf.loc[x, "ShiftHours"] != 0:
+                    shiftCalDF.loc[x, "ShiftType"] = shifttype
+                    shiftCalDF.loc[x, "ShiftHours"] = shiftTypesDict[shifttype]
             
 # Set or change shift info for each day of a month for a given year ande a list of machines
 def setShiftConfig (shiftCalDF, months, machines, shifttype, shiftconfig):
@@ -127,13 +131,6 @@ def setShiftConfig (shiftCalDF, months, machines, shifttype, shiftconfig):
                         shiftCalDF.loc[x, "ShiftConfig"] = shiftconfig
     return(shiftCalDF)
 
-def dispShiftHoursMonthMachine(shiftCalDF, months, machines):
-    tempDF = pd.DataFrame()
-    tempDF = shiftCalDF.groupby(['Month','Machine'])['ShiftHours'].sum().reset_index()
-    tempDF = tempDF.pivot(index='Month', columns = 'Machine', values='ShiftHours')
-    matrixDF = tempDF.loc[months,machines]
-    return(matrixDF)
-
 # Initialises a shift calendar as pandas dataframe
 # Each day for the specified year, months and mchines will be initialised with the nbr of the day, type of day, type of shift
 # Shift Types and hours are set for workdays only, Public Holidays and Weekends  
@@ -151,6 +148,26 @@ def initShiftCalendar(year, months, machines, shiftType, country):
                 else:
                     _shiftType = shiftType
                 shiftHours = shiftTypesDict[_shiftType]
-                shiftDays.append([year, monthsNameList[mo-1], day, weekday, dayType, ma, _shiftType, shiftHours,shiftConfig])
-    shiftCalDF= pd.DataFrame(shiftDays, columns= ['Year','Month','Day', 'WeekDay','DayType', 'Machine','ShiftType','ShiftHours', 'ShiftConfig'] ) 
+                if shiftHours == 0: 
+                    workday = 0 
+                else: 
+                    workday = 1
+                shiftDays.append([year, mo, monthsNameList[mo-1], day, weekday, dayType, ma, _shiftType, shiftHours,workday, shiftConfig])
+    shiftCalDF= pd.DataFrame(shiftDays, columns= ['Year', 'MthNbr', 'Month','Day', 'WeekDay','DayType', 'Machine','ShiftType','ShiftHours','WorkDay', 'ShiftConfig'] ) 
     return (shiftCalDF)
+
+def dispShiftHoursMonthMachine(shiftCalDF, months, machines):
+    smonths = sorted([monthsDict[n] for n in months])
+    nmonths = [monthsNameList[n-1] for n in smonths]
+    dfs = shiftCalDF [shiftCalDF['Machine'].isin(machines) & shiftCalDF['Month'].isin(months)]
+    dfpiv = pd.pivot_table(dfs, index=['Month'], columns = ['Machine'], values = ['ShiftHours'], aggfunc = np.sum, margins=True)
+    dfpiv = dfpiv.reindex(nmonths)
+    return(dfpiv)
+
+def dispShiftWorkdaysMonthMachine(shiftCalDF, months, machines):
+    smonths = sorted([monthsDict[n] for n in months])
+    nmonths = [monthsNameList[n-1] for n in smonths]
+    dfs = shiftCalDF [shiftCalDF['Machine'].isin(machines) & shiftCalDF['Month'].isin(months)]
+    dfpiv = pd.pivot_table(dfs, index=['Month'], columns = ['Machine'], values = ['WorkDay'], aggfunc = np.sum, margins=True)
+    dfpiv = dfpiv.reindex(nmonths)
+    return(dfpiv)
