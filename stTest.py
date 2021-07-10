@@ -133,18 +133,21 @@ def configureShift():
    st.sidebar.subheader('Configure Shift Calendar')
   
    # Select avaialble Machines - default: 'All'
+   mselect = 'All'
+   machselect = list(machines)
    mSelect = st.sidebar.multiselect('Machines',['All', machines])
    if mSelect == 'All':
-      machSelect = machines
+      machSelect = list(machines)
    elif mSelect == 'Select':
       machSelect = st.sidebar.multiselect('Machines:', machines)
       machSelect = list(machSelect)
-
    # Select year to configure Production Calendar; def = current
    yearSelect = date.today().year
    yearSelect = st.sidebar.selectbox("Year:", yrList)
-
+  
    # Select Months - default = 'All'
+   mthSelect = 'All'
+   monthSelect = list(monthsNameList)
    mthSelect = st.sidebar.selectbox('Months',['All', 'Select'])
    if mthSelect == 'All':
       monthSelect = list(monthsNameList)
