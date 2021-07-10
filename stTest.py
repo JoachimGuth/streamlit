@@ -95,7 +95,7 @@ def viewCalendar():
                    of 3x8 hours.\
                    For the initial standard shift offering, public holidays and weekends are considered as non operating days.\
                    You can change the shift offering for certain machines and months for a certain year. ")
-         st.write('Available Years: ', yrList)
+         st.write('Available Years: ', list(yrList))
          st.write("Available Machines: ", str(machines))
    elif selection == 'Overview':
        typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
