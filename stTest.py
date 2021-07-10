@@ -163,7 +163,8 @@ def configureShift():
    st.write("Machines: ", str(machSelect))
    st.write("Year: ", str(yearSelect))
    st.write("Months: ", str(monthSelect))
-   st.write("Shift Model: ", str(shiftSelect))
+   st.write("Shift Model: ", str(shiftTypeSelect))
+   st.write("Shift Model: ", str(shiftConfigSelect))
    
 
 ################################ E N D ##########################################
