@@ -137,12 +137,9 @@ def configureShift():
    shiftTypeSelect = '2x8'
    shiftConfigSelect = 'wk.d5'
     
-   
-  
    # Select avaialble Machines - default: 'All'
    mselect = 'All'
-   
-   mSelect = st.sidebar.multiselect('Machines',['All', 'Machines'])
+   mSelect = st.sidebar.radio('Machines': ['All', 'Machines'])
    if mSelect == 'All':
       machSelect = list(machines)
    elif mSelect == 'Machines':
@@ -155,7 +152,7 @@ def configureShift():
   
    # Select Months - default = 'All'
    mthSelect = 'All'
-   mthSelect = st.sidebar.selectbox('Months',['All', 'Months'])
+   mthSelect = st.sidebar.radio('Months',['All', 'Months'])
    if mthSelect == 'All':
       monthSelect = list(monthsNameList)
    elif mthSelect == 'Months':
