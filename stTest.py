@@ -90,7 +90,7 @@ def viewCalendar():
        typeselection = st.sidebar.radio('Type', ['ShiftHours','WorkDays', 'Ouput']) 
        if typeselection == 'ShiftHours':
           st.subheader('Shift Hours')
-          shdf = dispShiftHoursMonthMachine(shiftCal, monthsNameList, machines)
+          shdf = dispShftHrsMonthMachine(shiftCal, monthsNameList, machines)
        elif typeselection == 'WorkDays':
           st.subheader('Working Days')
           shdf = dispShiftWorkdaysMonthMachine(shiftCal, monthsNameList, machines)
