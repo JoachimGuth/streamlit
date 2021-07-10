@@ -171,6 +171,7 @@ def configureShift():
 # Application - Demand Analysis
 #################################################################################
 def analyseDemand():
+   st.subheader('This part is under development')
    st.sidebar.title('Demand Analysis')
    pass
 ################################ E N D ##########################################
@@ -179,6 +180,7 @@ def analyseDemand():
 # Application - Machine Utilisattion
 #################################################################################
 def optimiseUtilisation():
+   st.subheader('This part is under development')
    st.sidebar.title('Optimisation')
    pass
 ################################ E N D ##########################################
