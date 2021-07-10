@@ -88,7 +88,7 @@ def viewCalendar():
    # Overview and Summaries
    selection = st.sidebar.radio('Calendar View', ['Overview','Details']) 
    if selection == 'Overview':
-       typeselection = st.sidebar.radio('Type', ['ShiftHours','WorkDays', 'Ouput']) 
+       typeselection = st.sidebar.radio('Type', ['ShiftHours','WorkDays', 'Output']) 
        if typeselection == 'ShiftHours':
           st.subheader('Operating Hours')
           shdf = dispShftHrsMthMach(shiftCal, monthsNameList, machines)
