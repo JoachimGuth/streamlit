@@ -134,7 +134,7 @@ def configureShift():
    machSelect = list(machines)
    monthSelect = list(monthsNameList)
    yearSelect = date.today().year
-   shiftTypesSelect = list(shiftTypesNameList)
+   shiftTypeSelect = list(shiftTypesNameList)
    shiftConfigSelect = list(shiftConfigNameList)
     
    # Display current selection and shift configuration in the main window
