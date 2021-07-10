@@ -134,7 +134,7 @@ def configureShift():
    machSelect = list(machines)
    monthSelect = list(monthsNameList)
    yearSelect = date.today().year
-   shiftTypeSelect = list(shiftTypeNameList)
+   shiftTypesSelect = list(shiftTypesNameList)
    shiftConfigSelect = list(shiftConfigNameList)
     
    # Display current selection and shift configuration in the main window
@@ -166,7 +166,7 @@ def configureShift():
       monthSelect = st.sidebar.multiselect('Months: ', list(monthsNameList))
 
    # Select Shift Type
-   shiftTypeSelect = st.sidebar.selectbox("Shift Type: ", list(shiftTypesNameList))
+   shiftTypesSelect = st.sidebar.selectbox("Shift Type: ", list(shiftTypesNameList))
     
    # Select Shoft Configuration
    shiftConfigSelect = st.sidebar.selectbox("Shift Config: ", list(shiftConfigNameList))
