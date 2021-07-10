@@ -141,8 +141,8 @@ def configureShift():
    st.write("Machines: ", str(machSelect))
    st.write("Year: ", str(yearSelect))
    st.write("Months: ", str(monthSelect))
-   st.write("Shift Model: ", str(shiftTypeSelect))
-   st.write("Shift Model: ", str(shiftConfigSelect))
+   st.write("Shift Hours: ", str(shiftTypeSelect))
+   st.write("Shift Days: ", str(shiftConfigSelect))
   
    # Select avaialble Machines - default: 'All'
    mselect = 'All'
