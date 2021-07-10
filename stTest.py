@@ -155,7 +155,7 @@ def configureShift():
       monthSelect = st.sidebar.multiselect('Months: ', list(monthsNameList))
 
    # Shift Type selection
-   shiftSelect = st.sidebar.selectbox("Shift: ", list(shiftOptionsList))
+   shiftSelect = st.sidebar.selectbox("Shift: ", list(shiftTypesNameList))
 
    # Display current selection and ishift configuration in the main window
    
