@@ -142,22 +142,23 @@ def configureShift():
    # Select avaialble Machines - default: 'All'
    mselect = 'All'
    
-   mSelect = st.sidebar.multiselect('Machines',['All', machines])
+   mSelect = st.sidebar.multiselect('Machines',['All', 'Machines'])
    if mSelect == 'All':
       machSelect = list(machines)
-   elif mSelect == 'Select':
+   elif mSelect == 'Machines':
       machSelect = st.sidebar.multiselect('Machines:', machines)
       machSelect = list(machSelect)
+      
    # Select year to configure Production Calendar; def = current
    yearSelect = date.today().year
    yearSelect = st.sidebar.selectbox("Year:", yrList)
   
    # Select Months - default = 'All'
    mthSelect = 'All'
-   mthSelect = st.sidebar.selectbox('Months',['All', 'Select'])
+   mthSelect = st.sidebar.selectbox('Months',['All', 'Months'])
    if mthSelect == 'All':
       monthSelect = list(monthsNameList)
-   elif mthSelect == 'Select':
+   elif mthSelect == 'Months':
       monthSelect = st.sidebar.multiselect('Months: ', list(monthsNameList))
 
    # Select Shift Type
