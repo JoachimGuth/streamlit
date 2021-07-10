@@ -57,6 +57,10 @@ dayTypesDict = {'Wk':0, 'Sat':1, 'Sun': 2, 'PH': 3, 'PHSat': 4, 'PHSun': 5}
 dayTypesNameList = [t for t in dayTypesDict]
 dayTypesNbrList = [c for c in dayTypesDict.values()]
 
+yrList = [cy for cy in range(date.today().year,date.today().year+5)]
+
+
+
 # End - General & common Paramters for plant and shift-calendar configuration
 ################################ E N D ##########################################
 
@@ -93,6 +97,7 @@ def viewCalendar():
                    of 3x8 hours.\
                    For the initial standard shift offering, public holidays and weekends are considered as non operating days.\
                    You can change the shift offering for certain machines and months for a certain year. ")
+         st.write('Available Years: ', yrList)
          st.write("Available Machines: "+ str(machines))
    elif selection == 'Overview':
        typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
