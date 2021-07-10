@@ -21,13 +21,16 @@ pd.set_option('display.max_rows', None)
 #st.write(pulp.listSolvers())
 #st.write(pulp.operating_system)
 
-#st.title("Plant Optimisation")
+st.title("Plant Optimisation")
 
 st.set_page_config(layout= "wide", page_title ="Plant Utilisation",
                     #initial_sidebar_state="collapsed",#
                     page_icon="🔮")
 
-# Global Plant Paramters
+
+#######################################################################
+# General & common Paramters for plant and shift-calendar configuration
+#######################################################################
 # Machines available for production
 machines = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8']
 
@@ -73,11 +76,13 @@ def setOpHours(machine, month):
 
   
   
-  
+
+#######################################################################
 # Application - View Shift Calendar
+#######################################################################
 def viewCalendar():
-   st.header ('View Shift Calendar')
-   st.sidebar.subheader('View Shift Schedule')
+   st.header ('Shift Calendar')
+   st.sidebar.subheader('View Shift Calendar')
   
    # Overview and Summaries
    shiftHoursSummary = st.sidebar.radio('Calendar View', ['Overview','Details']) 
@@ -86,7 +91,7 @@ def viewCalendar():
        if typeselection == 'ShiftHours':
           shdf = dispShiftHoursMonthMachine(shiftCal, monthsNameList, machines)
        elif typeselection == 'WorkDays':
-          shdf = dispShiftHoursMonthMachine(shiftCal, monthsNameList, machines)
+          shdf = dispShiftWorkdaysMonthMachine(shiftCal, monthsNameList, machines)
        st.dataframe(shdf)
    else:
    # Select one Month
