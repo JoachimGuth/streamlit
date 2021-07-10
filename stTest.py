@@ -107,7 +107,7 @@ def viewCalendar():
       machineSelect = st.sidebar.radio('Select Machine', machines)
       df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
       st.write(monthSelect, machineSelect)
-      st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShiftHours']])
+      st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
   
 # End viewCalendar   
 ################################ E N D ##########################################
