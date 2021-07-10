@@ -49,32 +49,27 @@ stdDayAvailHours = 24
 shiftOptionsDict = { '2x8': 16, '3x8': 24, '2x12': 24 }
 shiftOptionsList = [s for s in shiftOptionsDict.keys()]
 
-
-# Select Application - default: Shift Configuration
-st.sidebar.subheader('Main Menu')
-
-mainSelect = 'viewCalendar'
-mainSelect = st.sidebar.radio('Select: ', ['viewCalendar', 'configureShift', 'analyseDemand', 'optimiseUtilisation'])
+# End - General & common Paramters for plant and shift-calendar configuration
+#############################################################################
 
 
-# Initialize and generate a ShifttCalendar for a particular year 
+
+############################## S T A R  T #######################################
+# Initialize a Default ShifttCalendar for the  current year 
 # Eachday of the year is initialised for all available machines with a 2*8 hour shift and 5 days a week work schedule configuration 'wk.5d'
 shiftCal = pd.DataFrame()
 shiftCal = initShiftCalendar(2021, monthsNbrList, machines, '2x8', 'Singapore')
+################################ E N D ########################################
 
 
+############################## S T A R  T #######################################
+# Main Application Selection Loop
+# Select Application 
+st.sidebar.subheader('Main Menu')
+mainSelect = st.sidebar.radio('Select: ', ['View Shift Calendar', 'ConfigureShift Calendar', 'Analyse Demand', 'Optimisw Plant Utilisation'])
+################################ E N D ########################################
 
-def displayShiftConfigData(machine,month):
-   pass
 
-def displayShiftConfigChart(machine,month):
-   pass
-
-def setOpHours(machine, month):
-   pass
-
-  
-  
 
 #######################################################################
 # Application - View Shift Calendar
@@ -105,7 +100,9 @@ def viewCalendar():
  #End viewCalendar   
     
 
+#######################################################################
 # Application - Shift Configuration
+#######################################################################
 def configureShift():
 
    st.write("Initially all machines will be available for production for all month with default shift of 3x8 hours. In standard shift offering, public holidays and weekends are considered as non operating days. You can change the shift offering for certain machines and months for a certain year by selecting respectively. Not selected machines and month will be left unchanged in terms of shift offering.")
@@ -155,36 +152,34 @@ def configureShift():
                                               
                                      
 
+#######################################################################
+# Application - Demand Analysis
+########################################################################
 def analyseDemand():
    st.sidebar.title('Demand Analysis')
    pass
 
+#######################################################################
+# Application - Machine Utilisattion
+########################################################################
 def optimiseUtilisation():
    st.sidebar.title('Optimisation')
    pass
 
-
-# Main Program Selection Loop
-if mainSelect == 'viewCalendar':
+#######################################################################
+# Main Program Loop
+########################################################################
+if mainSelect == 'View Shift Calendar':
     viewCalendar()
-elif mainSelect == 'configureShift':
+elif mainSelect == 'Configure Shift Calendar':
    configureShift()
 elif mainSelect == 'analyseDemand':
    analyseDemand()
 elif mainSelect == 'optimiseUtilisation':
    optimiseUtilisation()
-
-
+# End - Main Program Loop
+########################################################################
     
     
     
     
-
-
-def table():
-   for i in range(1, 10):
-      c1, c2, c3, c4 = st.beta_columns(4)
-      c1 = st.write(f'{i}')
-      c2 = st.write(f'{i}')
-      c3 = st.write(f'{i}')
-      c4 = st.write(f'{i}')
