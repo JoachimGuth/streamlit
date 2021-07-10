@@ -96,7 +96,7 @@ def viewCalendar():
                    For the initial standard shift offering, public holidays and weekends are considered as non operating days.\
                    You can change the shift offering for certain machines and months for a certain year. ")
          st.write('Available Years: ', yrList)
-         st.write("Available Machines: "+ str(machines))
+         st.write("Available Machines: ", str(machines))
    elif selection == 'Overview':
        typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
        if typeselection == 'Operating Hours':
@@ -113,7 +113,7 @@ def viewCalendar():
           st.dataframe(shdf)
    elif selection == 'Details':
       # Select by Month and Machine
-      st.subheader('Daily Shift Calendar by Month an Machine')
+      st.subheader('Daily Shift Calendar by Month and Machine')
       monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
       machineSelect = st.sidebar.radio('Select Machine', machines)
       df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
