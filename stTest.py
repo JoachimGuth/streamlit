@@ -31,26 +31,33 @@ st.set_page_config(layout= "wide", page_title ="Plant Utilisation",
 # General & common Paramters for plant and shift-calendar configuration
 #######################################################################
 # Machines available for production
-machines = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8']
+# General - Common Data
 
-# Selectable Years
-years = [2021, 2022, 2023, 2024, 2025, 2026]
-#years = [yr for yr in range(datetime.datetime.now().year,datetime.datetime.now().year+10)]
+machines = ['M1', 'M2', 'M3','M4', 'M5', 'M6', 'M7', 'M8']
 
-# List of Month
-monthsDict = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
-monthsNbrList = [m for m in monthsDict.values()]
-monthsNameList = [n for n in monthsDict.keys()]
+machineOutputKgHour = {'M1': 15, 'M2': 25, 'M3': 30, 'M4': 30, 'M5': 35, 'M6': 40, 'M7': 55, 'M8': 80}
 
-# Standard Operating Hours per Day
-stdDayAvailHours = 24
+weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-# Possible shift operating configurations
-shiftOptionsDict = { '2x8': 16, '3x8': 24, '2x12': 24 }
-shiftOptionsList = [s for s in shiftOptionsDict.keys()]
+monthsDict = {'Jan': 1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10,'Nov':11, 'Dec':12}
+monthsNameList = [n for n in monthsDict]
+monthsNbrList = [ n for  n in monthsDict.values()]
+
+
+shiftTypesDict = {'0x0': 0, '2x8': 16, '3x8': 24, '2x12': 24}
+shiftTypesNameList = [s for s in shiftTypesDict]
+shiftTypesHoursList = [n for n in shiftTypesDict.values()]
+
+shiftConfigDict = {'wk.5d': 0, 'wksat.6d': 1, 'wkend.7d': 2, 'phwk.5d': 3, 'ph.all':4}
+shiftConfigNameList = [t for t in shiftTypesDict]
+shiftTypesNbrList = [c for c in shiftTypesDict.values()]
+
+dayTypesDict = {'Wk':0, 'Sat':1, 'Sun': 2, 'PH': 3, 'PHSat': 4, 'PHSun': 5}
+dayTypesNameList = [t for t in dayTypesDict]
+dayTypesNbrList = [c for c in dayTypesDict.values()]
 
 # End - General & common Paramters for plant and shift-calendar configuration
-#############################################################################
+################################ E N D ##########################################
 
 
 
