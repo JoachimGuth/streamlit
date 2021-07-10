@@ -142,8 +142,8 @@ def configureShift():
       machSelect = list(machSelect)
 
    # Select year to configure Production Calendar; def = current
-   yearSelect = datetime.datetime.now().year
-   yearSelect = st.sidebar.selectbox("Year:", years)
+   yearSelect = date.today().year
+   yearSelect = st.sidebar.selectbox("Year:", yrList)
 
    # Select Months - default = 'All'
    mthSelect = 'All'
