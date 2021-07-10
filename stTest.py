@@ -11,7 +11,6 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 
-
 from prodCalendar import initShiftCalendar
 from prodCalendar import dispShiftHoursMonthMachine
 
