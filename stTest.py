@@ -102,7 +102,8 @@ def viewCalendar():
           shdf = dispOutputMthMach(shiftCal, monthsNameList, machines)
           st.dataframe(shdf)
    elif selection == 'Details':
-      # Select one Month
+      # Select by Month and Machine
+      st.write('Shift Calendar Day by Day')
       monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
       machineSelect = st.sidebar.radio('Select Machine', machines)
       df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
