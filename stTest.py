@@ -131,9 +131,16 @@ def viewCalendar():
 def configureShift():
    st.header('Configure Shift Calendar')
    st.sidebar.subheader('Configure Shift Calendar')
-   machselect = list(machines)
+   machSelect = list(machines)
    monthSelect = list(monthsNameList)
    yearSelect = date.today().year
+    
+   # Display current selection and shift configuration in the main window
+   st.write("Machines: ", str(machSelect))
+   st.write("Year: ", str(yearSelect))
+   st.write("Months: ", str(monthSelect))
+   st.write("Shift Model: ", str(shiftTypeSelect))
+   st.write("Shift Model: ", str(shiftConfigSelect))
   
    # Select avaialble Machines - default: 'All'
    mselect = 'All'
@@ -162,14 +169,8 @@ def configureShift():
    # Select Shoft Configuration
    shiftConfigSelect = st.sidebar.selectbox("Shift Config: ", list(shiftConfigNameList))
 
-   # Display current selection and shift configuration in the main window
    
-   # Display currrent selection
-   st.write("Machines: ", str(machSelect))
-   st.write("Year: ", str(yearSelect))
-   st.write("Months: ", str(monthSelect))
-   st.write("Shift Model: ", str(shiftTypeSelect))
-   st.write("Shift Model: ", str(shiftConfigSelect))
+   
    
 
 ################################ E N D ##########################################
