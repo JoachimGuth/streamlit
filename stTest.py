@@ -133,7 +133,7 @@ def configureShift():
    st.sidebar.subheader('Configure Shift Calendar')
   
    # Select avaialble Machines - default: 'All'
-   mSelect = st.sidebar.radio('Machines',['All', 'Select'])
+   mSelect = st.sidebar.multiselect('Machines',['All', machines])
    if mSelect == 'All':
       machSelect = machines
    elif mSelect == 'Select':
