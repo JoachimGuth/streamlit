@@ -137,12 +137,7 @@ def configureShift():
    shiftTypeSelect = '2x8'
    shiftConfigSelect = 'wk.d5'
     
-   # Display current selection and shift configuration in the main window
-   st.write("Machines: ", str(machSelect))
-   st.write("Year: ", str(yearSelect))
-   st.write("Months: ", str(monthSelect))
-   st.write("Shift Hours: ", str(shiftTypeSelect))
-   st.write("Shift Days: ", str(shiftConfigSelect))
+   
   
    # Select avaialble Machines - default: 'All'
    mselect = 'All'
@@ -171,7 +166,12 @@ def configureShift():
    # Select Shoft Configuration
    shiftConfigSelect = st.sidebar.selectbox("Shift Config: ", list(shiftConfigNameList))
 
-   
+   # Display current selection and shift configuration in the main window
+   st.write("Machines: ", str(machSelect))
+   st.write("Year: ", str(yearSelect))
+   st.write("Months: ", str(monthSelect))
+   st.write("Shift Hours: ", str(shiftTypeSelect))
+   st.write("Shift Days: ", str(shiftConfigSelect))
    
    
 
