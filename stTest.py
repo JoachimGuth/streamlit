@@ -86,8 +86,15 @@ def viewCalendar():
    st.sidebar.subheader('View Shift Calendar')
   
    # Overview and Summaries
-   selection = st.sidebar.radio('Calendar View', ['Overview','Details']) 
-   if selection == 'Overview':
+   selection = st.sidebar.radio('Calendar View', ['Settings','Overview','Details']) 
+   if selection == 'Settings':
+         st.subheader('Initial Shift Configuration')
+         st.write("Initially all machines will be configured to be available for production for all month with the default shift \
+                   of 3x8 hours.\
+                   For the initial standard shift offering, public holidays and weekends are considered as non operating days.\
+                   You can change the shift offering for certain machines and months for a certain year. ")
+         st.write("Available hours per day: "+ str(stdDayAvailHours))
+   elif selection == 'Overview':
        typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
        if typeselection == 'Operating Hours':
           st.subheader('Operating Hours')
@@ -118,11 +125,6 @@ def viewCalendar():
 # Application - Shift Configuration
 #######################################################################
 def configureShift():
-
-   st.write("Initially all machines will be available for production for all month with default shift of 3x8 hours. In standard shift offering, public holidays and weekends are considered as non operating days. You can change the shift offering for certain machines and months for a certain year by selecting respectively. Not selected machines and month will be left unchanged in terms of shift offering.")
-   
-   st.sidebar.title('Shift Configuration')
-   st.sidebar.write("Available hours per day: "+ str(stdDayAvailHours))
 
    # Select avaialble Machines - default: 'All'
    mSelect = 'All'
