@@ -59,8 +59,6 @@ dayTypesNbrList = [c for c in dayTypesDict.values()]
 
 yrList = [cy for cy in range(date.today().year,date.today().year+5)]
 
-
-
 # End - General & common Paramters for plant and shift-calendar configuration
 ################################ E N D ##########################################
 
@@ -130,6 +128,7 @@ def viewCalendar():
 # Application - Shift Configuration
 #######################################################################
 def configureShift():
+   st.write('Configure Shift Calendar')
    st.sidebar.subheader('Configure Shift Calendar')
    # Select avaialble Machines - default: 'All'
    mSelect = 'All'
