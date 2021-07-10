@@ -19,7 +19,10 @@ pd.set_option('display.max_rows', None)
 
 # General - Common Data
 
+
 machines = ['M1', 'M2', 'M3','M4', 'M5', 'M6', 'M7', 'M8']
+
+machineOutputKgHour = {'M1': 15, 'M2': 25, 'M3': 30, 'M4': 30, 'M5': 35, 'M6': 40, 'M7': 55, 'M8': 80}
 
 weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
@@ -90,14 +93,14 @@ def getDayType(year, month, day, country):
         dayType = 'Wk'
     return(dayType)
 
-# Set 0r Change ShiftType and ShiftHours of the shiftCalDF. ShiftConfig remains unchanged
+# Set 0r Change ShiftType and ShftHrs of the shiftCalDF. ShiftConfig remains unchanged
 def setShiftType(shiftCalDF, months ,machines, shifttype):
     for x in shiftCalDF.index: 
         if shiftCalDF.loc[x, "Month"] in months:
             if shifttCalDF.loc[x, "Machine"] in machines:
-                if shiftCaldf.loc[x, "ShiftHours"] != 0:
+                if shiftCaldf.loc[x, "ShftHrs"] != 0:
                     shiftCalDF.loc[x, "ShiftType"] = shifttype
-                    shiftCalDF.loc[x, "ShiftHours"] = shiftTypesDict[shifttype]
+                    shiftCalDF.loc[x, "ShftHrs"] = shiftTypesDict[shifttype]
             
 # Set or change shift info for each day of a month for a given year ande a list of machines
 def setShiftConfig (shiftCalDF, months, machines, shifttype, shiftconfig):
@@ -107,27 +110,27 @@ def setShiftConfig (shiftCalDF, months, machines, shifttype, shiftconfig):
                 if shiftconfig == "wk.5d": 
                     if shiftCalDF.loc[x, "DayType"] in ['Wk']:
                         shiftCalDF.loc[x, "ShiftType"] = shifttype
-                        shiftCalDF.loc[x, "ShiftHours"] = shiftTypesDict[shifttype]
+                        shiftCalDF.loc[x, "ShftHrs"] = shiftTypesDict[shifttype]
                         shiftCalDF.loc[x, "ShiftConfig"] = shiftconfig
                 elif shiftconfig == "wksat.6d": 
                     if shiftCalDF.loc[x, "DayType"] in ['Wk', 'Sat']:
                         shiftCalDF.loc[x, "ShiftType"] = shifttype
-                        shiftCalDF.loc[x, "ShiftHours"] = shiftTypesDict[shifttype]
+                        shiftCalDF.loc[x, "ShftHrs"] = shiftTypesDict[shifttype]
                         shiftCalDF.loc[x, "ShiftConfig"] = shiftconfig
                 elif shiftconfig == "wkend.7d": 
                     if shiftCalDF.loc[x, "DayType"] in ['Wk', 'Sat','Sun']:
                         shiftCalDF.loc[x, "ShiftType"] = shifttype
-                        shiftCalDF.loc[x, "ShiftHours"] = shiftTypesDict[shifttype]
+                        shiftCalDF.loc[x, "ShftHrs"] = shiftTypesDict[shifttype]
                         shiftCalDF.loc[x, "ShiftConfig"] = shiftconfig
                 elif shiftconfig == "phwk.5d": 
                     if shiftCalDF.loc[x, "DayType"] in ['Wk', 'PH']:
                         shiftCalDF.loc[x, "ShiftType"] = shifttype
-                        shiftCalDF.loc[x, "ShiftHours"] = shiftTypesDict[shifttype]
+                        shiftCalDF.loc[x, "ShftHrs"] = shiftTypesDict[shifttype]
                         shiftCalDF.loc[x, "ShiftConfig"] = shiftconfig
                 elif shiftconfig == "all.xd": 
                     if shiftCalDF.loc[x, "DayType"] in ['Wk', 'PH', 'Sat', 'Sun', 'PHSat','PHSun']:
                         shiftCalDF.loc[x, "ShiftType"] = shifttype
-                        shiftCalDF.loc[x, "ShiftHours"] = shiftTypesDict[shifttype]
+                        shiftCalDF.loc[x, "ShftHrs"] = shiftTypesDict[shifttype]
                         shiftCalDF.loc[x, "ShiftConfig"] = shiftconfig
     return(shiftCalDF)
 
@@ -147,27 +150,36 @@ def initShiftCalendar(year, months, machines, shiftType, country):
                     _shiftType = '0x0'
                 else:
                     _shiftType = shiftType
-                shiftHours = shiftTypesDict[_shiftType]
-                if shiftHours == 0: 
+                ShftHrs = shiftTypesDict[_shiftType]
+                if shftHrs == 0: 
                     workday = 0 
                 else: 
                     workday = 1
-                shiftDays.append([year, mo, monthsNameList[mo-1], day, weekday, dayType, ma, _shiftType, shiftHours,workday, shiftConfig])
-    shiftCalDF= pd.DataFrame(shiftDays, columns= ['Year', 'MthNbr', 'Month','Day', 'WeekDay','DayType', 'Machine','ShiftType','ShiftHours','WorkDay', 'ShiftConfig'] ) 
+                output = shftHrs * machineOutputKgHour[ma]
+                shiftDays.append([year, mo, monthsNameList[mo-1], day, weekday, dayType, ma, _shiftType, shftHrs,output, workday, shiftConfig])
+    shiftCalDF= pd.DataFrame(shiftDays, columns= ['Year', 'MthNbr', 'Month','Day', 'WeekDay','DayType', 'Machine','ShiftType',"ShftHrs",'Output','WorkDay', 'ShiftConfig'] ) 
     return (shiftCalDF)
 
-def dispShiftHoursMonthMachine(shiftCalDF, months, machines):
-    smonths = sorted([monthsDict[n] for n in months])
-    nmonths = [monthsNameList[n-1] for n in smonths]
+def dispShftHrsMthMach(shiftCalDF, months, machines):
+    smonths = sorted([monthsDict[m] for m in months])
+    nmonths = [monthsNameList[m-1] for m in smonths]
     dfs = shiftCalDF [shiftCalDF['Machine'].isin(machines) & shiftCalDF['Month'].isin(months)]
-    dfpiv = pd.pivot_table(dfs, index=['Month'], columns = ['Machine'], values = ['ShiftHours'], aggfunc = np.sum, margins=True)
+    dfpiv = pd.pivot_table(dfs, index=['Month'], columns = ['Machine'], values = ['ShftHrs'], aggfunc = np.sum, margins=True)
     dfpiv = dfpiv.reindex(nmonths)
     return(dfpiv)
 
-def dispShiftWorkdaysMonthMachine(shiftCalDF, months, machines):
-    smonths = sorted([monthsDict[n] for n in months])
-    nmonths = [monthsNameList[n-1] for n in smonths]
-    dfs = shiftCalDF [shiftCalDF['Machine'].isin(machines) & shiftCalDF['Month'].isin(months)]
+def dispShiftWorkdaysMthMach(shiftCalDF, months, machines):
+    smonths = sorted([monthsDict[m] for m in months])
+    nmonths = [monthsNameList[m-1] for m in smonths]
+    dfs = shiftCalDF[shiftCalDF['Machine'].isin(machines) & shiftCalDF['Month'].isin(months)]
     dfpiv = pd.pivot_table(dfs, index=['Month'], columns = ['Machine'], values = ['WorkDay'], aggfunc = np.sum, margins=True)
+    dfpiv = dfpiv.reindex(nmonths)
+    return(dfpiv)
+
+def dispOutputMthMach(shiftCalDF, months, machines):
+    smonths = sorted(monthsDict[m] for m in months)
+    nmonths = [monthsNameList[m-1] for m in smonths]
+    dfs = shiftCalDF[shiftCalDF['Month'].isin(months) & shiftCalDF['Machine'].isin(machines)]
+    dfpiv = pd.pivot_table(dfs, index = 'Month', columns = 'Machine', values = 'Output', aggfunc = np.sum, margins = True)
     dfpiv = dfpiv.reindex(nmonths)
     return(dfpiv)
