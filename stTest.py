@@ -12,8 +12,9 @@ import streamlit as st
 
 
 from prodCalendar import initShiftCalendar
-from prodCalendar import dispShiftHoursMonthMachine
-from prodCalendar import dispShiftWorkdaysMonthMachine
+from prodCalendar import dispShftHrsMthMach
+from prodCalendar import dispShiftWorkdaysMthMach
+from prodCalendar import dispShiftOutputMthMach
 
 pd.set_option('display.max_rows', None)
 
