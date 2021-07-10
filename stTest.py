@@ -122,14 +122,16 @@ def viewCalendar():
   
 # End viewCalendar   
 ################################ E N D ##########################################
-    
 
-#######################################################################
+
+
+#################################################################################
 # Application - Shift Configuration
-#######################################################################
+#################################################################################
 def configureShift():
    st.header('Configure Shift Calendar')
    st.sidebar.subheader('Configure Shift Calendar')
+  
    # Select avaialble Machines - default: 'All'
    mSelect = 'All'
    machSelect = machines
@@ -147,7 +149,7 @@ def configureShift():
    # Select Months - default = 'All'
    mthSelect = 'All'
    monthSelect = list(monthsNameList)
-   mthSelect = st.sidebar.radio('Months',['All', 'Select'])
+   mthSelect = st.sidebar.selectbox('Months',['All', 'Select'])
    if mthSelect == 'All':
       monthSelect = list(monthsNameList)
    else:
@@ -177,7 +179,7 @@ def configureShift():
 # Application - Demand Analysis
 #################################################################################
 def analyseDemand():
-   st.subheader('This part is under development')
+   st.header('This part is under development')
    st.sidebar.title('Demand Analysis')
    pass
 ################################ E N D ##########################################
@@ -186,15 +188,15 @@ def analyseDemand():
 # Application - Machine Utilisattion
 #################################################################################
 def optimiseUtilisation():
-   st.subheader('This part is under development')
+   st.header('This part is under development')
    st.sidebar.title('Optimisation')
    pass
 ################################ E N D ##########################################
 
 
-#######################################################################
+#################################################################################
 # Main Program Loop
-################################################################################
+#################################################################################
 if mainSelect == 'View Shift Calendar':
     viewCalendar()
 elif mainSelect == 'Configure Shift Calendar':
