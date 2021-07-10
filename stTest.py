@@ -50,8 +50,8 @@ shiftTypesNameList = [s for s in shiftTypesDict]
 shiftTypesHoursList = [n for n in shiftTypesDict.values()]
 
 shiftConfigDict = {'wk.5d': 0, 'wksat.6d': 1, 'wkend.7d': 2, 'phwk.5d': 3, 'ph.all':4}
-shiftConfigNameList = [t for t in shiftTypesDict]
-shiftTypesNbrList = [c for c in shiftTypesDict.values()]
+shiftConfigNameList = [t for t in shiftConfigDict]
+shiftConfigNbrList = [c for c in shiftConfigDict.values()]
 
 dayTypesDict = {'Wk':0, 'Sat':1, 'Sun': 2, 'PH': 3, 'PHSat': 4, 'PHSun': 5}
 dayTypesNameList = [t for t in dayTypesDict]
@@ -133,13 +133,11 @@ def configureShift():
    st.sidebar.subheader('Configure Shift Calendar')
   
    # Select avaialble Machines - default: 'All'
-   mSelect = 'All'
-   machSelect = machines
    mSelect = st.sidebar.radio('Machines',['All', 'Select'])
    if mSelect == 'All':
       machSelect = machines
    elif mSelect == 'Select':
-      machSelect = st.sidebar.selectbox('Machines:', machines)
+      machSelect = st.sidebar.multiselect('Machines:', machines)
       machSelect = list(machSelect)
 
    # Select year to configure Production Calendar; def = current
@@ -147,18 +145,19 @@ def configureShift():
    yearSelect = st.sidebar.selectbox("Year:", yrList)
 
    # Select Months - default = 'All'
-   mthSelect = 'All'
-   monthSelect = list(monthsNameList)
    mthSelect = st.sidebar.selectbox('Months',['All', 'Select'])
    if mthSelect == 'All':
       monthSelect = list(monthsNameList)
-   else:
+   elif mthSelect == 'Select':
       monthSelect = st.sidebar.multiselect('Months: ', list(monthsNameList))
 
-   # Shift Type selection
-   shiftSelect = st.sidebar.selectbox("Shift: ", list(shiftTypesNameList))
+   # Select Shift Type
+   shiftTypeSelect = st.sidebar.selectbox("Shift Type: ", list(shiftTypesNameList))
+    
+   # Select Shoft Configuration
+   shiftConfigSelect = st.sidebar.selectbox("Shift Config: ", list(shiftConfigNameList))
 
-   # Display current selection and ishift configuration in the main window
+   # Display current selection and shift configuration in the main window
    
    # Display currrent selection
    st.write("Machines: ", str(machSelect))
@@ -166,11 +165,7 @@ def configureShift():
    st.write("Months: ", str(monthSelect))
    st.write("Shift Model: ", str(shiftSelect))
    
-   # Display shift config
-   maSelect = 'All'
-   maSelect = st.multiselect('Machines: ', machines)
-   moSelect = date.today().month
-   moSelect = st.multiselect('Month:  ', list(monthsNameList))
+
 ################################ E N D ##########################################
                                               
                                      
