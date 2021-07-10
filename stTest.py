@@ -130,7 +130,7 @@ def viewCalendar():
 # Application - Shift Configuration
 #######################################################################
 def configureShift():
-
+   st.sidebar.subheader('Configure Shift Calendar')
    # Select avaialble Machines - default: 'All'
    mSelect = 'All'
    machSelect = machines
