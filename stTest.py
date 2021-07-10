@@ -69,17 +69,15 @@ currentYear = date.today().year
 
 
 
-############################## S T A R  T #######################################
+############################## S T A R T #######################################
 # Initialize a Default ShifttCalendar for the  current year 
 # Eachday of the year is initialised for all available machines with a 2*8 hour shift and 5 days a week work schedule configuration 'wk.5d'
 shiftCal = pd.DataFrame()
-
-
 shiftCal = initShiftCalendar(currentYear, monthsNbrList, machines, defaultShiftType, 'Singapore')
 ################################ E N D ##########################################
 
 
-############################## S T A R  T #######################################
+############################## S T A R T #######################################
 # Main Application Selection Loop
 # Select Application 
 st.sidebar.subheader('Main Menu')
