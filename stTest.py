@@ -75,10 +75,11 @@ currentYear = date.today().year
 shiftCal = pd.DataFrame()
 yearSelect = currentYear
 machSelect = machines
-monthSelect = monthsNameList
+monthSelectName = monthsNameList
+monthSelectNbr = monthsNbrList
 shiftTypeSelect = defaultShiftType
 shiftConfigSelect = defaultShiftConfig
-shiftCal = initShiftCalendar(yearSelect, monthSelect, machSelect, shiftTypeSelect, 'Singapore')
+shiftCal = initShiftCalendar(yearSelect, monthSelectNbr, machSelect, shiftTypeSelect, 'Singapore')
 
 ################################ E N D ##########################################
 
@@ -107,7 +108,7 @@ def viewCalendar():
          # Display current selection and shift configuration in the main window
          st.write("Machines: ", str(machSelect))
          st.write("Year: ", str(yearSelect))
-         st.write("Months: ", str(monthSelect))
+         st.write("Months: ", str(monthSelectName))
          st.write("Shift Hours: ", str(shiftTypeSelect))
          st.write("Shift Days: ", str(shiftConfigSelect))
          st.subheader('Initial Shift Configuration')
@@ -116,7 +117,8 @@ def viewCalendar():
          st.write('Available Years: ', str(yrList))
          st.write("Available Machines: ", str(machines))
          st.write('Available Months: ', str(monthsNameList))
-         st.write("Available Shift Hours: ", str(shiftTypesNameList))     
+         st.write("Available Shift Hours: ", str(shiftTypesNameList))
+         st.write("Available Shift Days: ", str(shiftConfigNameList))
         
    elif selection == 'Overview':
        typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
