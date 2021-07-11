@@ -104,7 +104,6 @@ def viewCalendar():
    selection = st.sidebar.radio('Calendar View', ['Settings','Overview','Details']) 
    if selection == 'Settings':
       st.subheader('Current Shift Settings')
-    
       # Display current selection and shift configuration in the main window
       st.write("Machines: ", str(machSelect))
       st.write("Year: ", str(yearSelect))
