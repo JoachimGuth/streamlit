@@ -153,52 +153,60 @@ def viewCalendar():
 
 ###################  S H I F T  C O N F I G U R A T I O N  ######################
 #################################################################################
-def viewCalendar():
-    st.header ('Shift Calendar')
-    st.sidebar.subheader('View Shift Calendar')
+def configureShift():
+   st.header('Configure Shift Calendar')
+   
+   st.subheader('Current Shift Settings')
+   yearSelect = yearSelect
+   # Display current selection and shift configuration in the main window
+   #st.write("Machines: ", str(machSelect))
+   st.write("Year: ", str(yearSelect))
+   st.write("Months: ", str(monthSelectName))
+   st.write("Shift Hours: ", str(shiftTypeSelect))
+   st.write("Shift Days: ", str(shiftConfigSelect))
+    
+    
+   st.sidebar.subheader('Configure Shift Calendar')
+   machSelect = list(machines)
+   monthSelect = list(monthsNameList)
+   yearSelect = currentYear
+   shiftTypeSelect = defaultShiftType
+   shiftConfigSelect = defaultShiftConfig
+    
+   # Select avaialble Machines - default: 'All'
+   mselect = 'All'
+   mSelect = st.sidebar.radio('Machines',['All', 'Machines'])
+   if mSelect == 'All':
+      machSelect = list(machines)
+   elif mSelect == 'Machines':
+      machSelect = st.sidebar.multiselect('Machines:', machines)
+      machSelect = list(machSelect)
+      
+   # Select year to configure Production Calendar; def = current
+   yearSelect = date.today().year
+   yearSelect = st.sidebar.selectbox("Year:", yrList)
   
-   # Overview and Summaries
-    selection = st.sidebar.radio('Calendar View', ['Settings','Overview','Details']) 
-    if selection == 'Settings':
-        st.subheader('Current Shift Settings')
-        # Display current selection and shift configuration in the main window
-        st.write("Machines: ", str(machSelect)) 
-        st.write("Year: ", str(yearSelect))
-        st.write("Months: ", str(monthSelectName))
-        st.write("Shift Hours: ", str(shiftTypeSelect))
-        st.write("Shift Days: ", str(shiftConfigSelect))
-        
-        st.subheader('Initial Shift Configuration')
-        st.write("Initially the Shift Calendar is configured for each day of the current year and for all available Machines. By default only work days are available for production. The default shift is 3 x 8 hours. ")
-        st.write('Available Years: ', str(yrList))
-        st.write("Available Machines: ", str(machines))
-        st.write('Available Months: ', str(monthsNameList))
-        st.write("Available Shift Hours: ", str(shiftTypesNameList))
-        st.write("Available Shift Days: ", str(shiftConfigNameList))
-    elif selection == 'Overview':
-        typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
-        if typeselection == 'Operating Hours':
-            st.subheader('Operating Hours')
-            shdf = dispShftHrsMthMach(shiftCal, monthsNameList, machines)
-            st.dataframe(shdf)
-        elif typeselection == 'WorkDays':
-            st.subheader('Working Days')
-            shdf = dispShiftWorkdaysMthMach(shiftCal, monthsNameList, machines)
-            st.dataframe(shdf)
-        elif typeselection == 'Output':
-            st.subheader('Production Output in kg/mth')
-            shdf = dispOutputMthMach(shiftCal, monthsNameList, machines)
-            st.dataframe(shdf)
-    elif selection == 'Details':
-    # Select by Month and Machine
-        st.subheader('Daily Shift Calendar by Month and Machine')
-        monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
-        machSelect = st.sidebar.radio('Select Machine', machines)
-        df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machSelect)]
-        st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
-        st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
-  
-# End viewCalendar
+   # Select Months - default = 'All'
+   mthSelect = 'All'
+   mthSelect = st.sidebar.radio('Months',['All', 'Months'])
+   if mthSelect == 'All':
+      monthSelect = list(monthsNameList)
+   elif mthSelect == 'Months':
+      monthSelect = st.sidebar.multiselect('Months: ', list(monthsNameList))
+
+   # Select Shift Type
+   shiftTypesSelect = st.sidebar.selectbox("Shift Type: ", list(shiftTypesNameList))
+    
+   # Select Shoft Configuration
+   shiftConfigSelect = st.sidebar.selectbox("Shift Config: ", list(shiftConfigNameList))
+
+   # Display current selection and shift configuration in the main window
+   st.write("Machines: ", str(machSelect))
+   st.write("Year: ", str(yearSelect))
+   st.write("Months: ", str(monthSelect))
+   st.write("Shift Hours: ", str(shiftTypeSelect))
+   st.write("Shift Days: ", str(shiftConfigSelect))
+
 ################################ E N D ##########################################
 
                                               
