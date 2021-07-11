@@ -79,14 +79,14 @@ currentYear = date.today().year
 # Init selectr opttions
 yearSelect = currentYear
 machSelect = machines
-monthSelectName = monthNameList
-monthSelectNbr = monthNbrList
+monthSelectName = monthsNameList
+monthSelectNbr = monthsNbrList
 shiftTypeSelect = defaultShiftType
 shiftConfigSelect = defaultShiftConfig
 
 # Init Shift Calendar
 shiftCal = pd.DataFrame()
-shiftCal = initShiftCalendar(yearSelect, [monthSelectNbr], [machSelect], shiftTypeSelect, 'Singapore')
+shiftCal = initShiftCalendar(yearSelect, monthSelectNbr, machSelect, shiftTypeSelect, 'Singapore')
 ################################ E N D ##########################################
 
 
