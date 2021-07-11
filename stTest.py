@@ -80,7 +80,7 @@ currentYear = date.today().year
 yearSelect = currentYear
 machSelect = str(machines)
 monthSelectName = str(monthsNameList)
-monthSelectNbr = str(monthsNbrList)
+monthSelectNbr = monthsNbrList
 shiftTypeSelect = defaultShiftType
 shiftConfigSelect = defaultShiftConfig
 
