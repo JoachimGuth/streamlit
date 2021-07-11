@@ -154,7 +154,8 @@ def viewCalendar():
 
 ###################  S H I F T  C O N F I G U R A T I O N  ######################
 #################################################################################
-def configureShift():
+def configureShift(msel):
+   machSelect = msel
    st.header('Configure Shift Calendar')
    st.subheader('Current Shift Settings')
    st.write("Machines: ", str(machSelect))
@@ -234,7 +235,7 @@ def optimiseUtilisation():
 if mainSelect == 'View Shift Calendar':
     viewCalendar()
 elif mainSelect == 'Configure Shift Calendar':
-   configureShift()
+   configureShift(machSelect)
 elif mainSelect == 'Analyse Demand':
    analyseDemand()
 elif mainSelect == 'Optimise Plant Utilisation':
