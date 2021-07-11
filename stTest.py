@@ -38,6 +38,7 @@ st.set_page_config(layout= "wide", page_title ="Plant Utilisation",
 
 
 machines = ['M1', 'M2', 'M3','M4', 'M5', 'M6', 'M7', 'M8']
+defaultMach = machines[0]
 
 machineOutputKgHour = {'M1': 15, 'M2': 25, 'M3': 30, 'M4': 30, 'M5': 35, 'M6': 40, 'M7': 55, 'M8': 80}
 
@@ -46,7 +47,8 @@ weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", 
 monthsDict = {'Jan': 1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10,'Nov':11, 'Dec':12}
 monthsNameList = [n for n in monthsDict]
 monthsNbrList = [ n for  n in monthsDict.values()]
-
+defaultMonthName = monthNameList[0]
+defaultMonthNbr = monthNbrListt[0]
 
 shiftTypesDict = {'0x0': 0, '2x8': 16, '3x8': 24, '2x12': 24}
 shiftTypesNameList = [s for s in shiftTypesDict]
@@ -76,7 +78,7 @@ currentYear = date.today().year
 
 # Init selectr opttions
 yearSelect = currentYear
-machSelect = machines
+machSelect = defaultMach
 monthSelectName = monthsNameList
 monthSelectNbr = monthsNbrList
 shiftTypeSelect = defaultShiftType
@@ -109,9 +111,9 @@ def viewCalendar():
   if selection == 'Settings':
       st.subheader('Current Shift Settings')
       # Display current selection and shift configuration in the main window
-      st.write("Machines: ", str(machSelect))
-      st.write("Year: ", str(yearSelect))
-      st.write("Months: ", str(monthSelectName))
+      st.write("Machines: ", str(defaultMach))
+      st.write("Year: ", str(currentYear))
+      st.write("Months: ", str(defaultMonthName))
       st.write("Shift Hours: ", str(shiftTypeSelect))
       st.write("Shift Days: ", str(shiftConfigSelect))
 
