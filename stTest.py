@@ -84,7 +84,7 @@ monthSelectNbr = monthsNbrList
 shiftTypeSelect = defaultShiftType
 shiftConfigSelect = defaultShiftConfig
 
-print(yearSelect, machSelect, monthSelectNbr)
+st.write(yearSelect, machSelect, monthSelectNbr)
 
 # Init Shift Calendar
 shiftCal = pd.DataFrame()
