@@ -83,7 +83,7 @@ shiftCal = initShiftCalendar(yearSelect, monthSelect, machSelect, shiftTypeSelec
 ################################ E N D ##########################################
 
 
-############################## S T A R T #######################################
+######################   M A I N   L O O P  #####################################
 # Main Application Selection Loop
 # Select Application 
 st.sidebar.subheader('Main Menu')
@@ -102,7 +102,7 @@ def viewCalendar():
    # Display current selection and shift configuration in the main window
    st.write("Machines: ", str(machSelect))
    st.write("Year: ", str(yearSelect))
-   st.write("Months: ", str(monthSelect))
+   #st.write("Months: ", str(monthSelect))
    st.write("Shift Hours: ", str(shiftTypeSelect))
    st.write("Shift Days: ", str(shiftConfigSelect))
    
