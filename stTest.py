@@ -142,6 +142,7 @@ def viewCalendar():
         df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
         st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
         st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
+        dispOutputMthMach(df, ['Jan'],['M1'])
   
 # End viewCalendar   
 ################################ E N D ##########################################
