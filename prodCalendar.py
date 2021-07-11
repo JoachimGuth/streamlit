@@ -34,18 +34,22 @@ monthsNbrList = [ n for  n in monthsDict.values()]
 shiftTypesDict = {'0x0': 0, '2x8': 16, '3x8': 24, '2x12': 24}
 shiftTypesNameList = [s for s in shiftTypesDict]
 shiftTypesHoursList = [n for n in shiftTypesDict.values()]
+defaultShiftType = '3x8'
 
 shiftConfigDict = {'wk.5d': 0, 'wksat.6d': 1, 'wkend.7d': 2, 'phwk.5d': 3, 'ph.all':4}
-shiftConfigNameList = [t for t in shiftTypesDict]
-shiftTypesNbrList = [c for c in shiftTypesDict.values()]
+shiftConfigNameList = [t for t in shiftConfigDict]
+shiftConfigNbrList = [c for c in shiftConfigDict.values()]
+defaultConfig = 'wk.d5'
 
 dayTypesDict = {'Wk':0, 'Sat':1, 'Sun': 2, 'PH': 3, 'PHSat': 4, 'PHSun': 5}
 dayTypesNameList = [t for t in dayTypesDict]
 dayTypesNbrList = [c for c in dayTypesDict.values()]
 
+yrList = [cy for cy in range(date.today().year,date.today().year+5)]
+currentYear = date.today().year
 
 
-#Function - Determine nbr of days of a month for a particulat year
+# Function - Determine nbr of days of a month for a particulat year
 def nbrOfMonthDays(year, month):
     leap = 0
     if year % 400 == 0:
