@@ -15,6 +15,7 @@ from prodCalendar import initShiftCalendar
 from prodCalendar import dispShftHrsMthMach
 from prodCalendar import dispShiftWorkdaysMthMach
 from prodCalendar import dispOutputMthMach
+from prodCalendar import chartOutputMthMach
 
 pd.set_option('display.max_rows', None)
 
