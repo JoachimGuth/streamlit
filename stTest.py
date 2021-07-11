@@ -107,22 +107,22 @@ def viewCalendar():
   # Overview and Summaries
   selection = st.sidebar.radio('Calendar View', ['Settings','Overview','Details']) 
   if selection == 'Settings':
-    st.subheader('Current Shift Settings')
-    # Display current selection and shift configuration in the main window
-    st.write("Machines: ", str(machSelect))
-    st.write("Year: ", str(yearSelect))
-    st.write("Months: ", str(monthSelectName))
-    st.write("Shift Hours: ", str(shiftTypeSelect))
-    st.write("Shift Days: ", str(shiftConfigSelect))
+      st.subheader('Current Shift Settings')
+      # Display current selection and shift configuration in the main window
+      #st.write("Machines: ", str(machSelect))
+      st.write("Year: ", str(yearSelect))
+      st.write("Months: ", str(monthSelectName))
+      st.write("Shift Hours: ", str(shiftTypeSelect))
+      st.write("Shift Days: ", str(shiftConfigSelect))
 
-    st.subheader('Initial Shift Configuration')
-    st.write("Initially the Shift Calendar is configured for each day of the current year and for all available Machines. \
-                 By default only work days are available for production. The default shift is 3 x 8 hours. ")
-    st.write('Available Years: ', str(yrList))
-    st.write("Available Machines: ", str(machines))
-    st.write('Available Months: ', str(monthsNameList))
-    st.write("Available Shift Hours: ", str(shiftTypesNameList))
-    st.write("Available Shift Days: ", str(shiftConfigNameList))
+      st.subheader('Initial Shift Configuration')
+      st.write("Initially the Shift Calendar is configured for each day of the current year and for all available Machines. \
+                   By default only work days are available for production. The default shift is 3 x 8 hours. ")
+      st.write('Available Years: ', str(yrList))
+      st.write("Available Machines: ", str(machines))
+      st.write('Available Months: ', str(monthsNameList))
+      st.write("Available Shift Hours: ", str(shiftTypesNameList))
+      st.write("Available Shift Days: ", str(shiftConfigNameList))
   elif selection == 'Overview':
     typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
     if typeselection == 'Operating Hours':
