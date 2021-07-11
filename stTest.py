@@ -101,52 +101,52 @@ mainSelect = st.sidebar.radio('Select: ', ['View Shift Calendar', 'Configure Shi
 #######################  V I E W  S H I F T  C A L  #############################
 #################################################################################
 def viewCalendar():
-   st.header ('Shift Calendar')
-   st.sidebar.subheader('View Shift Calendar')
-  
-   # Overview and Summaries
-   selection = st.sidebar.radio('Calendar View', ['Settings','Overview','Details']) 
-   if selection == 'Settings':
-      st.subheader('Current Shift Settings')
-      # Display current selection and shift configuration in the main window
-      st.write("Machines: ", str(machSelect))
-      st.write("Year: ", str(yearSelect))
-      st.write("Months: ", str(monthSelectName))
-      st.write("Shift Hours: ", str(shiftTypeSelect))
-      st.write("Shift Days: ", str(shiftConfigSelect))
-         
-      st.subheader('Initial Shift Configuration')
-      st.write("Initially the Shift Calendar is configured for each day of the current year and for all available Machines. \
-                   By default only work days are available for production. The default shift is 3 x 8 hours. ")
-      st.write('Available Years: ', str(yrList))
-      st.write("Available Machines: ", str(machines))
-      st.write('Available Months: ', str(monthsNameList))
-      st.write("Available Shift Hours: ", str(shiftTypesNameList))
-      st.write("Available Shift Days: ", str(shiftConfigNameList))
-   elif selection == 'Overview':
-      typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
-      if typeselection == 'Operating Hours':
-        st.subheader('Operating Hours')
-        shdf = dispShftHrsMthMach(shiftCal, monthsNameList, machines)
-        st.dataframe(shdf)
-      elif typeselection == 'WorkDays':
-        st.subheader('Working Days')
-        shdf = dispShiftWorkdaysMthMach(shiftCal, monthsNameList, machines)
-        st.dataframe(shdf)
-      elif typeselection == 'Output':
-        st.subheader('Production Output in kg/mth')
-        shdf = dispOutputMthMach(shiftCal, monthsNameList, machines)
-        st.dataframe(shdf)
+  st.header ('Shift Calendar')
+  st.sidebar.subheader('View Shift Calendar')
+
+  # Overview and Summaries
+  selection = st.sidebar.radio('Calendar View', ['Settings','Overview','Details']) 
+  if selection == 'Settings':
+    st.subheader('Current Shift Settings')
+    # Display current selection and shift configuration in the main window
+    st.write("Machines: ", str(machSelect))
+    st.write("Year: ", str(yearSelect))
+    st.write("Months: ", str(monthSelectName))
+    st.write("Shift Hours: ", str(shiftTypeSelect))
+    st.write("Shift Days: ", str(shiftConfigSelect))
+
+    st.subheader('Initial Shift Configuration')
+    st.write("Initially the Shift Calendar is configured for each day of the current year and for all available Machines. \
+                 By default only work days are available for production. The default shift is 3 x 8 hours. ")
+    st.write('Available Years: ', str(yrList))
+    st.write("Available Machines: ", str(machines))
+    st.write('Available Months: ', str(monthsNameList))
+    st.write("Available Shift Hours: ", str(shiftTypesNameList))
+    st.write("Available Shift Days: ", str(shiftConfigNameList))
+  elif selection == 'Overview':
+    typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
+    if typeselection == 'Operating Hours':
+      st.subheader('Operating Hours')
+      shdf = dispShftHrsMthMach(shiftCal, monthsNameList, machines)
+      st.dataframe(shdf)
+    elif typeselection == 'WorkDays':
+      st.subheader('Working Days')
+      shdf = dispShiftWorkdaysMthMach(shiftCal, monthsNameList, machines)
+      st.dataframe(shdf)
+    elif typeselection == 'Output':
+      st.subheader('Production Output in kg/mth')
+      shdf = dispOutputMthMach(shiftCal, monthsNameList, machines)
+      st.dataframe(shdf)
    elif selection == 'Details':
-      # Select by Month and Machine
-      st.subheader('Daily Shift Calendar by Month and Machine')
-      monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
-      machSelect = st.sidebar.radio('Select Machine', machines)
-      
-      df = shiftCal[(shiftCal['Month'] == monthSelect) & (shiftCal['Machine'] == machSelect)]
-      st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
-      st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
-      dispOutputMthMach(df, ['Jan'],['M1'])
+     # Select by Month and Machine
+     st.subheader('Daily Shift Calendar by Month and Machine')
+     monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
+     machSelect = st.sidebar.radio('Select Machine', machines)
+
+     df = shiftCal[(shiftCal['Month'] == monthSelect) & (shiftCal['Machine'] == machSelect)]
+     st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
+     st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
+     dispOutputMthMach(df, ['Jan'],['M1'])
 ################################ E N D ##########################################
 
 
