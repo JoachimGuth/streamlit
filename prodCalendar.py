@@ -187,3 +187,8 @@ def dispOutputMthMach(shiftCalDF, months, machines):
     dfpiv = pd.pivot_table(dfs, index = 'Month', columns = 'Machine', values = 'Output', aggfunc = np.sum, margins = True)
     dfpiv = dfpiv.reindex(nmonths)
     return(dfpiv)
+
+def chartOutputMthMach(shiftCalDF, months, machines):
+    dfs = shiftCalDF[shiftCalDF['Month'].isin(months) & shiftCalDF['Machine'].isin(machines)]
+    dfs.plot(x="Day", y=['ShftHrs'], kind =  'bar')
+    plt.show()
