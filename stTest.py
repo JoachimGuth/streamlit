@@ -120,31 +120,30 @@ def viewCalendar():
       st.write('Available Months: ', str(monthsNameList))
       st.write("Available Shift Hours: ", str(shiftTypesNameList))
       st.write("Available Shift Days: ", str(shiftConfigNameList))
- elif selection == 'Overview':
-      typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
-      if typeselection == 'Operating Hours':
-        st.subheader('Operating Hours')
-        shdf = dispShftHrsMthMach(shiftCal, monthsNameList, machines)
-        st.dataframe(shdf)
-      elif typeselection == 'WorkDays':
-        st.subheader('Working Days')
-        shdf = dispShiftWorkdaysMthMach(shiftCal, monthsNameList, machines)
-        st.dataframe(shdf)
-      elif typeselection == 'Output':
-        st.subheader('Production Output in kg/mth')
-        shdf = dispOutputMthMach(shiftCal, monthsNameList, machines)
-        st.dataframe(shdf)
- elif selection == 'Details':
-  # Select by Month and Machine
-  st.subheader('Daily Shift Calendar by Month and Machine')
-  monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
-  machSelect = st.sidebar.radio('Select Machine', machines)
-  df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
-  st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
-  st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
-  dispOutputMthMach(df, ['Jan'],['M1'])
-  
-# End viewCalendar   
+   elif selection == 'Overview':
+        typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
+        if typeselection == 'Operating Hours':
+          st.subheader('Operating Hours')
+          shdf = dispShftHrsMthMach(shiftCal, monthsNameList, machines)
+          st.dataframe(shdf)
+        elif typeselection == 'WorkDays':
+          st.subheader('Working Days')
+          shdf = dispShiftWorkdaysMthMach(shiftCal, monthsNameList, machines)
+          st.dataframe(shdf)
+        elif typeselection == 'Output':
+          st.subheader('Production Output in kg/mth')
+          shdf = dispOutputMthMach(shiftCal, monthsNameList, machines)
+          st.dataframe(shdf)
+   elif selection == 'Details':
+        # Select by Month and Machine
+        st.subheader('Daily Shift Calendar by Month and Machine')
+        monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
+        machSelect = st.sidebar.radio('Select Machine', machines)
+        df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
+        st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
+        st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
+        dispOutputMthMach(df, ['Jan'],['M1'])
+
 ################################ E N D ##########################################
 
 
