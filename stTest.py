@@ -109,7 +109,7 @@ def viewCalendar():
   if selection == 'Settings':
       st.subheader('Current Shift Settings')
       # Display current selection and shift configuration in the main window
-      #st.write("Machines: ", str(machSelect))
+      st.write("Machines: ", str(machSelect))
       st.write("Year: ", str(yearSelect))
       st.write("Months: ", str(monthSelectName))
       st.write("Shift Hours: ", str(shiftTypeSelect))
@@ -146,7 +146,6 @@ def viewCalendar():
       df = shiftCal[(shiftCal['Month'] == monthSelect) & (shiftCal['Machine'] == machSelect)]
       st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
       st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
-      dispOutputMthMach(df, ['Jan'],['M1'])
 ################################ E N D ##########################################
 
 
@@ -155,16 +154,13 @@ def viewCalendar():
 #################################################################################
 def configureShift():
      st.header('Configure Shift Calendar')
-
      st.subheader('Current Shift Settings')
-     yearSelect = yearSelect
      # Display current selection and shift configuration in the main window
      #st.write("Machines: ", str(machSelect))
      st.write("Year: ", str(yearSelect))
      st.write("Months: ", str(monthSelectName))
      st.write("Shift Hours: ", str(shiftTypeSelect))
      st.write("Shift Days: ", str(shiftConfigSelect))
-
 
      st.sidebar.subheader('Configure Shift Calendar')
      machSelect = list(machines)
