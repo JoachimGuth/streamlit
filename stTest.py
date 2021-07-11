@@ -73,16 +73,20 @@ currentYear = date.today().year
 ################ I N I T   S H I F T   C A L ####################################
 # Initialize a Default ShifttCalendar for the  current year 
 # Eachday of the year is initialised for all available machines with a 2*8 hour shift and 5 days a week work schedule configuration 'wk.5d'
-shiftCal = pd.DataFrame()
+
+# Init selectr opttions
 yearSelect = currentYear
 machSelect = machines
 monthSelectName = monthsNameList
 monthSelectNbr = monthsNbrList
 shiftTypeSelect = defaultShiftType
 shiftConfigSelect = defaultShiftConfig
-shiftCal = initShiftCalendar(yearSelect, monthSelectNbr, machSelect, shiftTypeSelect, 'Singapore')
 
+# Init Shift Calendar
+shiftCal = pd.DataFrame()
+shiftCal = initShiftCalendar(yearSelect, monthSelectNbr, machSelect, shiftTypeSelect, 'Singapore')
 ################################ E N D ##########################################
+
 
 
 ######################   M A I N   L O O P  #####################################
@@ -93,8 +97,8 @@ mainSelect = st.sidebar.radio('Select: ', ['View Shift Calendar', 'Configure Shi
 ################################ E N D ##########################################
 
 
+
 #######################  V I E W  S H I F T  C A L  #############################
-# Application - View Shift Calendar
 #################################################################################
 def viewCalendar():
    st.header ('Shift Calendar')
@@ -143,14 +147,11 @@ def viewCalendar():
       st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
       st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
       dispOutputMthMach(df, ['Jan'],['M1'])
-
 ################################ E N D ##########################################
 
 
 
-
 ###################  S H I F T  C O N F I G U R A T I O N  ######################
-# Application - Shift Configuration
 #################################################################################
 def viewCalendar():
     st.header ('Shift Calendar')
@@ -160,6 +161,13 @@ def viewCalendar():
     selection = st.sidebar.radio('Calendar View', ['Settings','Overview','Details']) 
     if selection == 'Settings':
         st.subheader('Current Shift Settings')
+        # Display current selection and shift configuration in the main window
+        st.write("Machines: ", str(machSelect)) 
+        st.write("Year: ", str(yearSelect))
+        st.write("Months: ", str(monthSelectName))
+        st.write("Shift Hours: ", str(shiftTypeSelect))
+        st.write("Shift Days: ", str(shiftConfigSelect))
+        
         st.subheader('Initial Shift Configuration')
         st.write("Initially the Shift Calendar is configured for each day of the current year and for all available Machines. By default only work days are available for production. The default shift is 3 x 8 hours. ")
         st.write('Available Years: ', str(yrList))
