@@ -79,10 +79,6 @@ monthSelect = monthsNbrList
 shiftTypeSelect = defaultShiftType
 shiftConfigSelect = defaultShiftConfig
 shiftCal = initShiftCalendar(yearSelect, monthSelect, machSelect, shiftTypeSelect, 'Singapore')
-st.write("Year: ", str(yearSelect))
-st.write("Months: ", str(monthSelect))
-st.write("Shift Hours: ", str(shiftTypeSelect))
-st.write("Shift Days: ", str(shiftConfigSelect))
 
 ################################ E N D ##########################################
 
