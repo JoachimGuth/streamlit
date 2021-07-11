@@ -154,55 +154,54 @@ def viewCalendar():
 ###################  S H I F T  C O N F I G U R A T I O N  ######################
 #################################################################################
 def configureShift():
-     st.header('Configure Shift Calendar')
-     st.subheader('Current Shift Settings')
-     # Display current selection and shift configuration in the main window
-     #st.write("Machines: ", str(machSelect))
-     st.write("Year: ", str(yearSelect))
-     st.write("Months: ", str(monthSelectName))
-     st.write("Shift Hours: ", str(shiftTypeSelect))
-     st.write("Shift Days: ", str(shiftConfigSelect))
+   st.header('Configure Shift Calendar')
+   st.subheader('Current Shift Settings')
+   st.write("Machines: ", str(machSelect))
+   st.write("Year: ", str(yearSelect))
+   st.write("Months: ", str(monthSelectName))
+   st.write("Shift Hours: ", str(shiftTypeSelect))
+   st.write("Shift Days: ", str(shiftConfigSelect))
 
-     st.sidebar.subheader('Configure Shift Calendar')
-     machSelect = list(machines)
-     monthSelect = list(monthsNameList)
-     yearSelect = currentYear
-     shiftTypeSelect = defaultShiftType
-     shiftConfigSelect = defaultShiftConfig
+   st.sidebar.subheader('Configure Shift Calendar')
+   machSelect = list(machines)
+   monthSelect = list(monthsNameList)
+   yearSelect = currentYear
+   shiftTypeSelect = defaultShiftType
+   shiftConfigSelect = defaultShiftConfig
 
-     # Select avaialble Machines - default: 'All'
-     mselect = 'All'
-     mSelect = st.sidebar.radio('Machines',['All', 'Machines'])
-     if mSelect == 'All':
-        machSelect = list(machines)
-     elif mSelect == 'Machines':
-        machSelect = st.sidebar.multiselect('Machines:', machines)
-        machSelect = list(machSelect)
+   # Select avaialble Machines - default: 'All'
+   mselect = 'All'
+   mSelect = st.sidebar.radio('Machines',['All', 'Machines'])
+   if mSelect == 'All':
+      machSelect = list(machines)
+   elif mSelect == 'Machines':
+      machSelect = st.sidebar.multiselect('Machines:', machines)
+      machSelect = list(machSelect)
 
-     # Select year to configure Production Calendar; def = current
-     yearSelect = date.today().year
-     yearSelect = st.sidebar.selectbox("Year:", yrList)
+   # Select year to configure Production Calendar; def = current
+   yearSelect = date.today().year
+   yearSelect = st.sidebar.selectbox("Year:", yrList)
 
-     # Select Months - default = 'All'
-     mthSelect = 'All'
-     mthSelect = st.sidebar.radio('Months',['All', 'Months'])
-     if mthSelect == 'All':
-        monthSelect = list(monthsNameList)
-     elif mthSelect == 'Months':
-        monthSelect = st.sidebar.multiselect('Months: ', list(monthsNameList))
+   # Select Months - default = 'All'
+   mthSelect = 'All'
+   mthSelect = st.sidebar.radio('Months',['All', 'Months'])
+   if mthSelect == 'All':
+      monthSelect = list(monthsNameList)
+   elif mthSelect == 'Months':
+      monthSelect = st.sidebar.multiselect('Months: ', list(monthsNameList))
 
-     # Select Shift Type
-     shiftTypesSelect = st.sidebar.selectbox("Shift Type: ", list(shiftTypesNameList))
+   # Select Shift Type
+   shiftTypesSelect = st.sidebar.selectbox("Shift Type: ", list(shiftTypesNameList))
 
-     # Select Shoft Configuration
-     shiftConfigSelect = st.sidebar.selectbox("Shift Config: ", list(shiftConfigNameList))
+   # Select Shoft Configuration
+   shiftConfigSelect = st.sidebar.selectbox("Shift Config: ", list(shiftConfigNameList))
 
-     # Display current selection and shift configuration in the main window
-     st.write("Machines: ", str(machSelect))
-     st.write("Year: ", str(yearSelect))
-     st.write("Months: ", str(monthSelect))
-     st.write("Shift Hours: ", str(shiftTypeSelect))
-     st.write("Shift Days: ", str(shiftConfigSelect))
+   # Display current selection and shift configuration in the main window
+   st.write("Machines: ", str(machSelect))
+   st.write("Year: ", str(yearSelect))
+   st.write("Months: ", str(monthSelect))
+   st.write("Shift Hours: ", str(shiftTypeSelect))
+   st.write("Shift Days: ", str(shiftConfigSelect))
 
 ################################ E N D ##########################################
 
