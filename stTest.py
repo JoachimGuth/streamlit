@@ -161,8 +161,7 @@ def viewCalendar():
     if selection == 'Settings':
         st.subheader('Current Shift Settings')
         st.subheader('Initial Shift Configuration')
-        st.write("Initially the Shift Calendar is configured for each day of the current year and for all available Machines. \
-                       By default only work days are available for production. The default shift is 3 x 8 hours. ")
+        st.write("Initially the Shift Calendar is configured for each day of the current year and for all available Machines. By default only work days are available for production. The default shift is 3 x 8 hours. ")
         st.write('Available Years: ', str(yrList))
         st.write("Available Machines: ", str(machines))
         st.write('Available Months: ', str(monthsNameList))
@@ -190,7 +189,6 @@ def viewCalendar():
         df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machSelect)]
         st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
         st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
-        dispOutputMthMach(df, ['Jan'],['M1'])
   
 # End viewCalendar
 ################################ E N D ##########################################
