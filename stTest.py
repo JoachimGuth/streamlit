@@ -84,7 +84,7 @@ monthSelectNbr = monthsNbrList
 shiftTypeSelect = defaultShiftType
 shiftConfigSelect = defaultShiftConfig
 
-st.write(yearSelect, str(machSelect), monthsNameList)
+st.write(yearSelect, str(machSelect), str(monthsNameList))
 
 # Init Shift Calendar
 shiftCal = pd.DataFrame()
@@ -120,8 +120,7 @@ def viewCalendar():
       st.write("Shift Days: ", str(shiftConfigSelect))
 
       st.subheader('Initial Shift Configuration')
-      st.write("Initially the Shift Calendar is configured for each day of the current year and for all available Machines. \
-                   By default only work days are available for production. The default shift is 3 x 8 hours. ")
+      st.write("Initially the Shift Calendar is configured for each day of the current year and for all available Machines. By default only work days are available for production. The default shift is 3 x 8 hours. ")
       st.write('Available Years: ', str(yrList))
       st.write("Available Machines: ", str(machines))
       st.write('Available Months: ', str(monthsNameList))
