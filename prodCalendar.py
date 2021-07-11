@@ -184,7 +184,7 @@ def dispOutputMthMach(shiftCalDF, months, machines):
     smonths = sorted(monthsDict[m] for m in months)
     nmonths = [monthsNameList[m-1] for m in smonths]
     dfs = shiftCalDF[shiftCalDF['Month'].isin(months) & shiftCalDF['Machine'].isin(machines)]
-    dfpiv = pd.pivot_table(dfs, index = 'Month', columns = 'Machine', values = 'Output', aggfunc = np.sum, margins = True)
+    dfpiv = pd.pivot_table(dfs, index = ['Month'], columns = ['Machine'], values = ['Output'], aggfunc = np.sum, margins = True)
     dfpiv = dfpiv.reindex(nmonths)
     return(dfpiv)
 
