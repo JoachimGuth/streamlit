@@ -78,9 +78,9 @@ currentYear = date.today().year
 
 # Init selectr opttions
 yearSelect = currentYear
-machSelect = machines
-monthSelectName = monthsNameList
-monthSelectNbr = monthsNbrList
+machSelect = str(machines)
+monthSelectName = str(monthsNameList)
+monthSelectNbr = str(monthsNbrList)
 shiftTypeSelect = defaultShiftType
 shiftConfigSelect = defaultShiftConfig
 
