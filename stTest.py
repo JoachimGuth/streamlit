@@ -47,8 +47,8 @@ weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", 
 monthsDict = {'Jan': 1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10,'Nov':11, 'Dec':12}
 monthsNameList = [n for n in monthsDict]
 monthsNbrList = [ n for  n in monthsDict.values()]
-defaultMonthName = monthNameList[0]
-defaultMonthNbr = monthNbrListt[0]
+defaultMonthName = monthsNameList[0]
+defaultMonthNbr = monthsNbrListt[0]
 
 shiftTypesDict = {'0x0': 0, '2x8': 16, '3x8': 24, '2x12': 24}
 shiftTypesNameList = [s for s in shiftTypesDict]
