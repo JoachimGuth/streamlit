@@ -77,7 +77,7 @@ yearSelect = currentYear
 machSelect = machines
 monthSelect = monthsNbrList
 shiftTypeSelect = defaultShiftType
-shiftConfigSelect = defaultConfig
+shiftConfigSelect = defaultShiftConfig
 shiftCal = initShiftCalendar(yearSelect, monthSelect, machSelect, shiftTypeSelect, 'Singapore')
 st.write("Year: ", str(yearSelect))
 st.write("Months: ", str(monthSelect))
