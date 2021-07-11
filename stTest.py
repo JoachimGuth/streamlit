@@ -88,7 +88,7 @@ st.write(yearSelect, str(machSelect), str(monthSelectNbr))
 
 # Init Shift Calendar
 shiftCal = pd.DataFrame()
-shiftCal = initShiftCalendar(yearSelect, monthNbrList, machines, shiftTypeSelect, 'Singapore')
+shiftCal = initShiftCalendar(yearSelect, monthsNbrList, machines, shiftTypeSelect, 'Singapore')
 ################################ E N D ##########################################
 
 
