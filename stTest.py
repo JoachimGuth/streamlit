@@ -92,12 +92,11 @@ mainSelect = st.sidebar.radio('Select: ', ['View Shift Calendar', 'Configure Shi
 ################################ E N D ##########################################
 
 
-############################## S T A R  T #######################################
+#######################  V I E W  S H I F T  C A L  #############################
 # Application - View Shift Calendar
 #################################################################################
 def viewCalendar():
    st.header ('Shift Calendar')
-   
    st.sidebar.subheader('View Shift Calendar')
   
    # Overview and Summaries
@@ -111,6 +110,7 @@ def viewCalendar():
          st.write("Months: ", str(monthSelectName))
          st.write("Shift Hours: ", str(shiftTypeSelect))
          st.write("Shift Days: ", str(shiftConfigSelect))
+         
          st.subheader('Initial Shift Configuration')
          st.write("Initially the Shift Calendar is configured for each day of the current year and for all available Machines. \
                    By default only work days are available for production. The default shift is 3 x 8 hours. ")
@@ -148,15 +148,16 @@ def viewCalendar():
 
 
 
-###################S H I F T  C O N F I G U R A T I O N  ########################
+###################  S H I F T  C O N F I G U R A T I O N  ######################
 # Application - Shift Configuration
 #################################################################################
 def configureShift():
    st.header('Configure Shift Calendar')
+   
    st.subheader('Current Shift Settings')
     
    # Display current selection and shift configuration in the main window
-   st.write("Machines: ", str(machSelect))
+   #st.write("Machines: ", str(machSelect))
    st.write("Year: ", str(yearSelect))
    st.write("Months: ", str(monthSelectName))
    st.write("Shift Hours: ", str(shiftTypeSelect))
