@@ -138,6 +138,7 @@ def viewCalendar():
       st.subheader('Daily Shift Calendar by Month and Machine')
       monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
       machSelect = st.sidebar.radio('Select Machine', machines)
+      
       df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machSelect)]
       st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
       st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
