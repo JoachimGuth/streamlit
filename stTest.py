@@ -160,6 +160,7 @@ def configureShift(masel,mosel, ysel, sTSelect, sCSelect ):
    shiftConfigSelect = sCSelect
    st.header('Configure Shift Calendar')
    st.subheader('Current Shift Settings')
+   # need to change to table view
    st.write("Machines: ", str(machSelect))
    st.write("Year: ", str(yearSelect))
    st.write("Months: ", str(monthSelectName))
@@ -167,12 +168,6 @@ def configureShift(masel,mosel, ysel, sTSelect, sCSelect ):
    st.write("Shift Days: ", str(shiftConfigSelect))
 
    st.sidebar.subheader('Configure Shift Calendar')
-   machSelect = list(machines)
-   monthSelect = list(monthsNameList)
-   yearSelect = currentYear
-   shiftTypeSelect = defaultShiftType
-   shiftConfigSelect = defaultShiftConfig
-
    # Select avaialble Machines - default: 'All'
    mselect = 'All'
    mSelect = st.sidebar.radio('Machines',['All', 'Machines'])
@@ -183,11 +178,9 @@ def configureShift(masel,mosel, ysel, sTSelect, sCSelect ):
       machSelect = list(machSelect)
 
    # Select year to configure Production Calendar; def = current
-   yearSelect = date.today().year
    yearSelect = st.sidebar.selectbox("Year:", yrList)
 
    # Select Months - default = 'All'
-   mthSelect = 'All'
    mthSelect = st.sidebar.radio('Months',['All', 'Months'])
    if mthSelect == 'All':
       monthSelect = list(monthsNameList)
