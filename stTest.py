@@ -84,8 +84,6 @@ monthSelectNbr = monthsNbrList
 shiftTypeSelect = defaultShiftType
 shiftConfigSelect = defaultShiftConfig
 
-st.write(yearSelect, str(machSelect), str(monthsNameList))
-
 # Init Shift Calendar
 shiftCal = pd.DataFrame()
 shiftCal = initShiftCalendar(yearSelect, monthsNbrList, machines, shiftTypeSelect, 'Singapore')
@@ -203,6 +201,7 @@ def configureShift(masel,mosel, ysel, sTSelect, sCSelect ):
    shiftConfigSelect = st.sidebar.selectbox("Shift Config: ", list(shiftConfigNameList))
 
    # Display current selection and shift configuration in the main window
+   st.subheader('New Selections')
    st.write("Machines: ", str(machSelect))
    st.write("Year: ", str(yearSelect))
    st.write("Months: ", str(monthSelect))
