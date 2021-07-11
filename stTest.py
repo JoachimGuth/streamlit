@@ -198,7 +198,7 @@ def configureShift(masel,mosel, ysel, sTSelect, sCSelect ):
    st.write("Machines: ", str(machSelect))
    st.write("Year: ", str(yearSelect))
    st.write("Months: ", str(monthSelect))
-   st.write("Shift Hours: ", str(shiftTypeSelect))
+   st.write("Shift Hours: ", str(shiftTypesSelect))
    st.write("Shift Days: ", str(shiftConfigSelect))
 
 ################################ E N D ##########################################
