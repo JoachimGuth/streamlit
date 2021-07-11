@@ -55,7 +55,7 @@ defaultShiftType = '3x8'
 shiftConfigDict = {'wk.5d': 0, 'wksat.6d': 1, 'wkend.7d': 2, 'phwk.5d': 3, 'ph.all':4}
 shiftConfigNameList = [t for t in shiftConfigDict]
 shiftConfigNbrList = [c for c in shiftConfigDict.values()]
-defaultConfig = 'wk.d5'
+defaultShiftConfig = 'wk.d5'
 
 dayTypesDict = {'Wk':0, 'Sat':1, 'Sun': 2, 'PH': 3, 'PHSat': 4, 'PHSun': 5}
 dayTypesNameList = [t for t in dayTypesDict]
@@ -140,7 +140,7 @@ def configureShift():
    monthSelect = list(monthsNameList)
    yearSelect = currentYear
    shiftTypeSelect = defaultShiftType
-   shiftConfigSelect = defaultConfig
+   shiftConfigSelect = defaultShiftConfig
     
    # Select avaialble Machines - default: 'All'
    mselect = 'All'
