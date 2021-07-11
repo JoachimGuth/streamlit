@@ -120,7 +120,7 @@ def viewCalendar():
          st.write("Available Shift Hours: ", str(shiftTypesNameList))
          st.write("Available Shift Days: ", str(shiftConfigNameList))
         
-   elif selection == 'Overview':
+    elif selection == 'Overview':
        typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
        if typeselection == 'Operating Hours':
           st.subheader('Operating Hours')
@@ -134,14 +134,14 @@ def viewCalendar():
           st.subheader('Production Output in kg/mth')
           shdf = dispOutputMthMach(shiftCal, monthsNameList, machines)
           st.dataframe(shdf)
-    elif selection == 'Details':
-       # Select by Month and Machine
-       st.subheader('Daily Shift Calendar by Month and Machine')
-       monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
-       machineSelect = st.sidebar.radio('Select Machine', machines)
-       df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
-       st.write('Month: ', monthSelect, '   Machine:  ', machineSelect)
-       st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
+     elif selection == 'Details':
+        # Select by Month and Machine
+        st.subheader('Daily Shift Calendar by Month and Machine')
+        monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
+        machSelect = st.sidebar.radio('Select Machine', machines)
+        df = shiftCal[(shiftCal.Month == monthSelect) & (shiftCal.Machine == machineSelect)]
+        st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
+        st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
   
 # End viewCalendar   
 ################################ E N D ##########################################
