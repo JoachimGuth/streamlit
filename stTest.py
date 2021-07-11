@@ -97,20 +97,21 @@ mainSelect = st.sidebar.radio('Select: ', ['View Shift Calendar', 'Configure Shi
 def viewCalendar():
    st.header ('Shift Calendar')
    
-   st.subheader('Current Shift Settings')
-    
-   # Display current selection and shift configuration in the main window
-   st.write("Machines: ", str(machSelect))
-   st.write("Year: ", str(yearSelect))
-   #st.write("Months: ", str(monthSelect))
-   st.write("Shift Hours: ", str(shiftTypeSelect))
-   st.write("Shift Days: ", str(shiftConfigSelect))
+   
    
    st.sidebar.subheader('View Shift Calendar')
   
    # Overview and Summaries
    selection = st.sidebar.radio('Calendar View', ['Settings','Overview','Details']) 
    if selection == 'Settings':
+         st.subheader('Current Shift Settings')
+    
+         # Display current selection and shift configuration in the main window
+         st.write("Machines: ", str(machSelect))
+         st.write("Year: ", str(yearSelect))
+         #st.write("Months: ", str(monthSelect))
+         st.write("Shift Hours: ", str(shiftTypeSelect))
+         st.write("Shift Days: ", str(shiftConfigSelect))
          st.subheader('Initial Shift Configuration')
          st.write("Initially all machines will be configured to be available for production for all month with the default shift \
                    of 3x8 hours.\
