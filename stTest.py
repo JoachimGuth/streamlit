@@ -133,7 +133,7 @@ def viewCalendar():
         st.subheader('Production Output in kg/mth')
         shdf = dispOutputMthMach(shiftCal, monthsNameList, machines)
         st.dataframe(shdf)
- elif selection == 'Details':
+   elif selection == 'Details':
       # Select by Month and Machine
       st.subheader('Daily Shift Calendar by Month and Machine')
       monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
