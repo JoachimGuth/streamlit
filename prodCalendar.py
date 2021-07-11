@@ -168,7 +168,7 @@ def dispShftHrsMthMach(shiftCalDF, months, machines):
     smonths = sorted([monthsDict[m] for m in months])
     nmonths = [monthsNameList[m-1] for m in smonths]
     dfs = shiftCalDF [shiftCalDF['Machine'].isin(machines) & shiftCalDF['Month'].isin(months)]
-    dfpiv = pd.pivot_table(dfs, index=['Month'], columns = ['Machine'], values = ['ShftHrs'], aggfunc = np.sum, margins=True)
+    dfpiv = pd.pivot_table(dfs, index='Month', columns = 'Machine', values = 'ShftHrs', aggfunc = np.sum, margins=True)
     dfpiv = dfpiv.reindex(nmonths)
     return(dfpiv)
 
