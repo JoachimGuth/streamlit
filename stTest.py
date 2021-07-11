@@ -154,10 +154,12 @@ def viewCalendar():
 
 ###################  S H I F T  C O N F I G U R A T I O N  ######################
 #################################################################################
-def configureShift(masel,mosel, ysel ):
+def configureShift(masel,mosel, ysel, sTSelect, sCSelect ):
    machSelect = masel
    monthSelectName  = mosel
    yearSelect = ysel
+   shiftTypeSelect = sTSelect
+   shiftConfigSelect = sCSelect
    st.header('Configure Shift Calendar')
    st.subheader('Current Shift Settings')
    st.write("Machines: ", str(machSelect))
@@ -237,7 +239,7 @@ def optimiseUtilisation():
 if mainSelect == 'View Shift Calendar':
     viewCalendar()
 elif mainSelect == 'Configure Shift Calendar':
-   configureShift(machSelect, monthSelectName, yearSelect)
+   configureShift(machSelect, monthSelectName, yearSelect, shiftTypeSelect, shiftConfigSelect)
 elif mainSelect == 'Analyse Demand':
    analyseDemand()
 elif mainSelect == 'Optimise Plant Utilisation':
