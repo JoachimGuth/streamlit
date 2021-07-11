@@ -97,8 +97,6 @@ mainSelect = st.sidebar.radio('Select: ', ['View Shift Calendar', 'Configure Shi
 def viewCalendar():
    st.header ('Shift Calendar')
    
-   
-   
    st.sidebar.subheader('View Shift Calendar')
   
    # Overview and Summaries
@@ -109,16 +107,17 @@ def viewCalendar():
          # Display current selection and shift configuration in the main window
          st.write("Machines: ", str(machSelect))
          st.write("Year: ", str(yearSelect))
-         #st.write("Months: ", str(monthSelect))
+         st.write("Months: ", str(monthSelect))
          st.write("Shift Hours: ", str(shiftTypeSelect))
          st.write("Shift Days: ", str(shiftConfigSelect))
          st.subheader('Initial Shift Configuration')
-         st.write("Initially all machines will be configured to be available for production for all month with the default shift \
-                   of 3x8 hours.\
-                   For the initial standard shift offering, public holidays and weekends are considered as non operating days.\
-                   You can change the shift offering for certain machines and months for a certain year. ")
+         st.write("Initially the Shift Calendar is configured for each day of the current year and for all available Machines. \
+                   By default only work days are available for production. The default shift is 3 x 8 hours. ")
          st.write('Available Years: ', str(yrList))
          st.write("Available Machines: ", str(machines))
+         st.write('Available Months: ', str(monthsNameList))
+         st.write("Available Shift Hours: ", str(shiftTypesNameList))     
+        
    elif selection == 'Overview':
        typeselection = st.sidebar.radio('Type', ['Operating Hours','WorkDays', 'Output']) 
        if typeselection == 'Operating Hours':
