@@ -152,10 +152,11 @@ def viewCalendar():
       machSelect = st.sidebar.radio('Select Machine', machines)
       st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
       df = shiftCal[(shiftCal['Month'].isin([monthSelect])) & (shiftCal['Machine'].isin([machSelect]))]
-      dfs = df[['Month', 'Day', 'ShftHrs']]
-      dfs.index('Day')
+      dfs = df[['Month', 'Machine','Day', 'ShftHrs']]
+      dfs.set_index('Day')
       st.bar_chart(dfs)
       st.bar_chart(dfs['ShftHrs'])
+      st.bar_chart(dfs['Day'])
      
 ################################ E N D ##########################################
 
