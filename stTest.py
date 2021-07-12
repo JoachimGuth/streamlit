@@ -111,7 +111,7 @@ def viewCalendar():
   if selection == 'Settings':
       st.subheader('Current Shift Settings')
       # Display current selection and shift configuration in the main window
-      #c = chartShiftTypes(df,mmonthsNameList, machNameList)
+      chartOutputMthMach(shiftCal,['Jan'], ['M1'])
       st.write("Machines: ", str(defaultMach))
       st.write("Year: ", str(currentYear))
       st.write("Months: ", str(defaultMonthName))
