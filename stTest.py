@@ -107,16 +107,10 @@ def viewCalendar():
   st.sidebar.subheader('View Shift Calendar')
 
   # Overview and Summaries
-  selection = st.sidebar.radio('Calendar View', ['Settings','Overview','Details']) 
+  selection = st.sidebar.radio('Calendar View', ['Settings','Overview','Details', 'Charts']) 
   if selection == 'Settings':
       st.subheader('Current Shift Settings')
       # Display current selection and shift configuration in the main window
-      dfs = shiftCal[shiftCal['Month'].isin(['Jan']) & shiftCal['Machine'].isin(['M1'])]
-      st.bar_chart(dfs)
-      #st.plot(x="Day", y=['ShftHrs'], kind =  'bar')
-      #plt.show()
-      
-      
       st.write(chartOutputMthMach(shiftCal,['Jan'], ['M1']))
       st.write("Machines: ", str(defaultMach))
       st.write("Year: ", str(currentYear))
@@ -153,6 +147,16 @@ def viewCalendar():
       df = shiftCal[(shiftCal['Month'] == monthSelect) & (shiftCal['Machine'] == machSelect)]
       st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
       st.dataframe(df[['Day', 'WeekDay', 'DayType', 'ShiftType','ShftHrs']])
+  elif selection == 'Charts':
+      st.subheader('Daily Shift Details by Month and Machine')
+      monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
+      machSelect = st.sidebar.radio('Select Machine', machines)
+      df = shiftCal[(shiftCal['Month'] == monthSelect) & (shiftCal['Machine'] == machSelect)]
+      st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
+      # Chart
+      dfs = df[shiftCal['Month'].isin([monthSelect]) & df['Machine'].isin([machSelect])]
+      st.bar_chart(dfs)
+      
 ################################ E N D ##########################################
 
 
