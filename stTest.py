@@ -155,7 +155,7 @@ def viewCalendar():
       dfs = df[['Month', 'Machine','Day', 'ShftHrs']]
       dfs.set_index('Day')
       st.bar_chart(dfs)
-      st.bar_chart(dfs['ShftHrs'])
+      st.bar_chart(dfs['Machine'])
       st.bar_chart(dfs['Day'])
      
 ################################ E N D ##########################################
