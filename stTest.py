@@ -112,7 +112,8 @@ def viewCalendar():
       st.subheader('Current Shift Settings')
       # Display current selection and shift configuration in the main window
       dfs = shiftCal[shiftCal['Month'].isin(['Jan']) & shiftCal['Machine'].isin(['M1'])]
-      st.plot(x="Day", y=['ShftHrs'], kind =  'bar')
+      st.bar_chart(dfs)
+      #st.plot(x="Day", y=['ShftHrs'], kind =  'bar')
       #plt.show()
       
       
