@@ -157,6 +157,7 @@ def viewCalendar():
       st.bar_chart(dfs)
       st.bar_chart(dfs['Machine'])
       st.bar_chart(dfs['Day'])
+      st.bar_chart(dfs['Month, 'ShftHrs'])
      
 ################################ E N D ##########################################
 
