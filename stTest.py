@@ -111,6 +111,7 @@ def viewCalendar():
   if selection == 'Settings':
       st.subheader('Current Shift Settings')
       # Display current selection and shift configuration in the main window
+      #c = chartShiftTypes(df,mmonthsNameList, machNameList)
       st.write("Machines: ", str(defaultMach))
       st.write("Year: ", str(currentYear))
       st.write("Months: ", str(defaultMonthName))
@@ -160,7 +161,7 @@ def configureShift(masel,mosel, ysel, sTSelect, sCSelect ):
    shiftConfigSelect = sCSelect
    st.header('Configure Shift Calendar')
    st.subheader('Current Shift Settings')
-   # need to change to table view
+   # #### need to change to table overview
    st.write("Machines: ", str(machSelect))
    st.write("Year: ", str(yearSelect))
    st.write("Months: ", str(monthSelectName))
@@ -169,11 +170,10 @@ def configureShift(masel,mosel, ysel, sTSelect, sCSelect ):
 
    st.sidebar.subheader('Configure Shift Calendar')
    # Select avaialble Machines - default: 'All'
-   mselect = 'All'
-   mSelect = st.sidebar.radio('Machines',['All', 'Machines'])
-   if mSelect == 'All':
+   select = st.sidebar.radio('Machines',['All', 'Machines'])
+   if select == 'All':
       machSelect = list(machines)
-   elif mSelect == 'Machines':
+   elif select == 'Machines':
       machSelect = st.sidebar.multiselect('Machines:', machines)
       machSelect = list(machSelect)
 
@@ -181,10 +181,10 @@ def configureShift(masel,mosel, ysel, sTSelect, sCSelect ):
    yearSelect = st.sidebar.selectbox("Year:", yrList)
 
    # Select Months - default = 'All'
-   mthSelect = st.sidebar.radio('Months',['All', 'Months'])
-   if mthSelect == 'All':
+   select = st.sidebar.radio('Months',['All', 'Months'])
+   if select == 'All':
       monthSelect = list(monthsNameList)
-   elif mthSelect == 'Months':
+   elif select == 'Months':
       monthSelect = st.sidebar.multiselect('Months: ', list(monthsNameList))
 
    # Select Shift Type
