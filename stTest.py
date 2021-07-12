@@ -111,7 +111,6 @@ def viewCalendar():
   if selection == 'Settings':
       st.subheader('Current Shift Settings')
       # Display current selection and shift configuration in the main window
-      st.write(chartOutputMthMach(shiftCal,['Jan'], ['M1']))
       st.write("Machines: ", str(defaultMach))
       st.write("Year: ", str(currentYear))
       st.write("Months: ", str(defaultMonthName))
@@ -141,7 +140,7 @@ def viewCalendar():
         st.dataframe(shdf)
   elif selection == 'Details':
       # Select by Month and Machine
-      st.subheader('Daily Shift Detials by Month and Machine')
+      st.subheader('Daily Shift Details by Month and Machine')
       monthSelect = st.sidebar.radio('Select Month', monthsNameList)   
       machSelect = st.sidebar.radio('Select Machine', machines)
       df = shiftCal[(shiftCal['Month'] == monthSelect) & (shiftCal['Machine'] == machSelect)]
