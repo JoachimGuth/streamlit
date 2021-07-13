@@ -165,7 +165,7 @@ def viewCalendar():
       selcal = shiftCal[['Month', 'Machine', 'WorkDay','ShftHrs', 'Output']]
       scal = selcal.groupby(["Month", "Machine"])["Output"].sum()
      
-      scal.set_index('Month')
+      #scal.set_index('Month')
       
       st.bar_chart(scal)
 
