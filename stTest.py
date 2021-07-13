@@ -164,6 +164,9 @@ def viewCalendar():
       scal = shiftCal.set_index('Month')
 
       st.bar_chart(scal['Output'])
+      st.bar_chart(scal['WorkDay'])
+      st.bar_chart(scal['ShftHrs'])
+      
      
 ################################ E N D ##########################################
 
