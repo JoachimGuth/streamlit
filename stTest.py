@@ -153,7 +153,7 @@ def viewCalendar():
       st.write('Month: ', monthSelect, '   Machine:  ', machSelect)
       df = shiftCal[(shiftCal['Month'].isin([monthSelect])) & (shiftCal['Machine'].isin([machSelect]))]
       st.dataframe(df)
-      dfs = df[['Month', 'Machine','Day', 'ShftHrs']]
+      dfs = df[['Month', 'Machine','Day','WorkDay', 'ShftHrs', 'Output']]
       st.dataframe(dfs)
       #dfs.set_index('Day')
       st.bar_chart(dfs)
