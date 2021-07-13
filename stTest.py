@@ -169,7 +169,7 @@ def viewCalendar():
       st.bar_chart(scal)
 
       st.bar_chart(scal['Output'])
-      st.bar_chart(scal['WorkDay'])
+      #st.bar_chart(scal['WorkDay'])
       st.bar_chart(scal['ShftHrs'])
       
      
