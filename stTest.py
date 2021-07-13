@@ -162,6 +162,7 @@ def viewCalendar():
       st.bar_chart(dfs['Output'])
       #st.bar_chart(dfs['Month'])
       scal = shiftCal.set_index('Month')
+      st.bar_chart(scal)
 
       st.bar_chart(scal['Output'])
       st.bar_chart(scal['WorkDay','Machine'])
