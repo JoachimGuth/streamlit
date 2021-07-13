@@ -162,7 +162,7 @@ def viewCalendar():
       st.bar_chart(dfs['Output'])
       
       selcal = shiftCal[['Month', 'Machine', 'WorkDay','ShftHrs', 'Output']]
-      scal = selcal.groupby(["Month", "Machine"])["Output"].sum().reset_index()
+      scal = selcal.groupby(["Month"])["Output"].sum().reset_index()
       st.dataframe(scal)
       st.bar_chart(scal)
       st.bar_chart(scal['Output'])
