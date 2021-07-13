@@ -162,7 +162,7 @@ def viewCalendar():
       st.bar_chart(dfs['Output'])
       #st.bar_chart(dfs['Month'])
       
-      scal = shiftCal[['Month', 'Machine', 'Output']]
+      scal = shiftCal[['Month', 'Machine', ,'WorkDay','ShftHrs', 'Output']]
       st.bar_chart(scal)
 
       st.bar_chart(scal['Output'])
